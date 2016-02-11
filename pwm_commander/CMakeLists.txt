@@ -206,5 +206,5 @@ target_link_libraries(pwm_const_publisher ${catkin_LIBRARIES})
 add_dependencies(pwm_const_publisher pub_sub_generate_messages_cpp)
 
 add_executable(pwm_to_pin src/pwm_to_pin.cpp)
-target_link_libraries(pwm_to_pin ${catkin_LIBRARIES} -lwiringPi)
+target_link_libraries(pwm_to_pin ${catkin_LIBRARIES} -lwiringPi -lpthread)
 add_dependencies(pwm_to_pin pub_sub_generate_messages_cpp wiringPi)
