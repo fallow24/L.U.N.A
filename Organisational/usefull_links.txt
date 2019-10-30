@@ -1,0 +1,8 @@
+Install ROS on Raspberry PI:
+http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
+
+Google Cartographer in ROS:
+https://google-cartographer-ros.readthedocs.io/en/latest/
+
+Improving Googles Cartographer: 
+https://www.mdpi.com/books/pdfdownload/article/515/1
