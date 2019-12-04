@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(pwm_commander)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -69,7 +69,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pwm_commander
-#  CATKIN_DEPENDS roscpp std_msgs
+#  CATKIN_DEPENDS roscpp std_msg
 #  DEPENDS system_lib
 )
 
@@ -163,18 +163,11 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
-## Mark executables for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-# install(TARGETS ${PROJECT_NAME}_node
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
-
-## Mark libraries for installation
-## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
-# install(TARGETS ${PROJECT_NAME}
+## Mark executables and/or libraries for installation
+# install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 
 ## Mark cpp header files for installation
@@ -204,7 +197,6 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-
 add_executable(pwm_reader src/pwm_reader.cpp)
 target_link_libraries(pwm_reader ${catkin_LIBRARIES})
 add_dependencies(pwm_reader pub_sub_generate_messages_cpp)
@@ -214,5 +206,5 @@ target_link_libraries(pwm_const_publisher ${catkin_LIBRARIES})
 add_dependencies(pwm_const_publisher pub_sub_generate_messages_cpp)
 
 add_executable(pwm_to_pin src/pwm_to_pin.cpp)
-target_link_libraries(pwm_to_pin ${catkin_LIBRARIES})
-add_dependencies(pwm_const_publisher pub_sub_generate_messages_cpp)
+target_link_libraries(pwm_to_pin ${catkin_LIBRARIES} -lwiringPi)
+add_dependencies(pwm_to_pin pub_sub_generate_messages_cpp wiringPi)
