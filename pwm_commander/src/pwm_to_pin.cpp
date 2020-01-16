@@ -10,13 +10,14 @@
 // Negative = backwards
 int throttle = 0;
 
-//Current pwm values required for diff calculation
-int curr_pwm_values[2] = {100,0};
+//Current pwm values required for diff calculation;
+//initially at 0% == 10 Throttle
+int curr_pwm_values[2] = {10,10};
 
 //Constants
 const int PIN1 = 12;
 const int PIN2 = 16;
-const int PWM_RANGE = 2000;
+const int PWM_RANGE = 200;
 
 /*Required Subfunction declaration*/
 //Arms the Motors, i.e. sets pwm position to 0%
@@ -28,7 +29,8 @@ int* throttle2pwmValues(int throttle);
 
 //Forces the pwm change to be smoother, i.e. for every
 //10% of motor throttle it takes 0.5 s
-void pwm_transition(int pin, int new_pwm_value, int curr_pwm_value);
+//Currently only works if both motors have the same throttle
+void pwm_transition(int pin_1, int pin_2, int* new_pwm_value, int* curr_pwm_value);
 
 //Called when pwm - data from the const pub is available
 void pwmValCallback(const std_msgs::String::ConstPtr& msg)
@@ -36,11 +38,9 @@ void pwmValCallback(const std_msgs::String::ConstPtr& msg)
   const char* num = msg->data.c_str();
   throttle = std::stoi(num,nullptr,10);
   int* pwmValues = throttle2pwmValues(throttle);
-  pwm_transition(PIN1, pwmValues[0],curr_pwm_values[0]);
-  pwm_transition(PIN2, pwmValues[1],curr_pwm_values[1]);
+  pwm_transition(PIN1, PIN2, pwmValues,curr_pwm_values);
   curr_pwm_values[0] = pwmValues[0];
   curr_pwm_values[1] = pwmValues[1];
-
   return;
 }
 
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 {
   /*
   * Init Node.
-  * This node recieves the constantly published values of topic 
+  * This node recieves the constantly published values of topic
   * "pwm_const" and puts them on the desired GPIO pin.
   */
   ros::init(argc, argv, "pwm_to_pin");
@@ -88,28 +88,26 @@ void init_motor(int pin_number)
 int* throttle2pwmValues(int throttle)
 {
   int* pwmValues = new int[2];
-  //First Wheel always runs at a given value 50% == 1.5 ms pulse length,
-  //Second Wheel is slowed down to increase overall throttle,
-  //Lowest pulse width 0% == 1 ms
+  //Both wheels turn in the same direction with the same velocity
+  //in order to create an overall throttle,
+  //Lowest pulse width 0% == 1 ms == 10 PWM chips
 
-  // For actual Motors: throttle == throttle of vehicle
-  //pwmValues[0] = 1.5 * PWM_RANGE*0.05;
-  //pwmValues[1] = 1.5 * PWM_RANGE*0.05 - throttle/100.0 * (PWM_RANGE*0.05);
-
-  // For testing with one motor: Throttle == Throttle of one motor.
+  // For two motors: Throttle == Throttle of one motor.
   pwmValues[0] = PWM_RANGE*0.05 + throttle/100.0*PWM_RANGE*0.05;
-  pwmValues[1] = 0;
+  pwmValues[1] = PWM_RANGE*0.05 + throttle/100.0*PWM_RANGE*0.05;
 
   return pwmValues;
 }
 
-void pwm_transition(int pin, int new_pwm_value, int curr_pwm_value)
+void pwm_transition(int pin_1, int pin_2, int* new_pwm_value, int* curr_pwm_value)
 {
-  int d_pwm = (new_pwm_value - curr_pwm_value)/10;
+  int d_pwm = (new_pwm_value[0] - curr_pwm_value[0]);
   if(d_pwm == 0)
   {
-    ROS_INFO("Writing follwing pwm: %d to pin %d", curr_pwm_value, pin);
-    softPwmWrite(pin,curr_pwm_value);
+    ROS_INFO("Writing following pwm: %d to pin %d", curr_pwm_value[0], pin_1);
+    ROS_INFO("Writing following pwm: %d to pin %d", curr_pwm_value[0], pin_2);
+    softPwmWrite(pin_1,curr_pwm_value[0]);
+    softPwmWrite(pin_2,curr_pwm_value[0]);
   }
   else
   {
@@ -118,9 +116,11 @@ void pwm_transition(int pin, int new_pwm_value, int curr_pwm_value)
      {
        //Depending on whether we reduce or increase pwm the transition has to
        //be adjusted as well
-       int write_val = d_pwm < 0 ? (curr_pwm_value - i*10):(curr_pwm_value + i*10);
-       ROS_INFO("Writing follwing pwm: %d to pin %d", write_val, pin);
-       softPwmWrite(pin,write_val);
+       int write_val = d_pwm < 0 ? (curr_pwm_value[0] - i):(curr_pwm_value[0] + i);
+       ROS_INFO("Writing following pwm: %d to pin %d", write_val, pin_1);
+       ROS_INFO("Writing following pwm: %d to pin %d", write_val, pin_2);
+       softPwmWrite(pin_1,write_val);
+       softPwmWrite(pin_2,write_val);
        delay(500);
      }
   }
