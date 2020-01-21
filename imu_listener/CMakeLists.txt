@@ -1,4 +1,3 @@
- 
 cmake_minimum_required(VERSION 2.8.3)
 project(imu_listener)
 
@@ -12,11 +11,12 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   roscpp
   rospy
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-                                                                                             
+
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -143,13 +143,18 @@ add_executable(imu_listener src/imu_listener.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(imu_listener nav_msgs_generate_messages_cpp)
+
+#UNCOMMENT THIS IF IT DOESNT WORK ANAYMORE
+#add_dependencies(imu_listener nav_msgs_generate_messages_cpp)
+
+
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(imu_listener
    ${catkin_LIBRARIES}
  )
 
+ add_dependencies(imu_listener tf)
 #############
 ## Install ##
 #############
@@ -197,3 +202,4 @@ add_dependencies(imu_listener nav_msgs_generate_messages_cpp)
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
