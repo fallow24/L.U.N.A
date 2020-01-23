@@ -12,12 +12,12 @@ int read_input();
 
 int main(int argc, char **argv)
 {
-  
-  /* 
-  *  Initializing Node and its topic. 
+
+  /*
+  *  Initializing Node and its topic.
   *  This node read pwm percentage values from the command line
-  *  and publishes them to the topic "pwm_call". 
-  */  
+  *  and publishes them to the topic "pwm_call".
+  */
   ros::init(argc, argv, "pwm_reader");
   ros::NodeHandle n;
   ros::Publisher pwm_pub = n.advertise<std_msgs::String>("pwm_call", 1000);
@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 
     int value = read_input();
 
-    /*Only accept valid percentage values*/
-    if(value >= 0 && value <= 100)
+    /*Only accept valid percentage values and -1 for startup procedure*/
+    if((value >= 0 && value <= 100) || (value == -1))
     {
         std::stringstream ss;
         ss << value;

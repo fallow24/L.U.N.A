@@ -1,5 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "sensor_msgs/Imu.h"
+#include "geometry_msgs/Vector3.h"
 #include <pigpio.h>
 #include <stdio.h>
 #include <sstream>
@@ -10,14 +12,19 @@
 int throttle = 0;
 const int PWM_RANGE = 2000;
 const int PWM_FREQUENCY = 50;
+const double MAX_ROT_SPEED = 3.5;
 //Current pwm values required for diff calculation
 int curr_pwm_values[2] = {100,100};
-
+geometry_msgs::Vector3* curr_ang_vel = new geometry_msgs::Vector3();
 //Constants
 const int PIN1 = 18;
 const int PIN2 = 23;
 
 /*Requiredd Subfunction declaration*/
+
+
+//start procedure
+int start_procedure(int pin_1, int pin_2);
 
 //Arms the ESC
 void init_esc(int pin);
@@ -35,12 +42,25 @@ void pwmValCallback(const std_msgs::String::ConstPtr& msg)
 {
   const char* num = msg->data.c_str();
   throttle = std::stoi(num,nullptr,10);
+
+if(throttle==-1&& start_procedure(PIN1, PIN2)==1){
+ROS_INFO("start procedure complete");
+
+}else{
   int* pwmValues = throttle2pwmValues(throttle);
   transfer_pwm(PIN1,PIN2,curr_pwm_values[0],pwmValues[0]);
   curr_pwm_values[0] = pwmValues[0];
   curr_pwm_values[1] = pwmValues[1];
-
+}
   return;
+}
+
+void imuDataCallback(const sensor_msgs::Imu msg)
+{
+ curr_ang_vel->x = msg.angular_velocity.x;
+ curr_ang_vel->y = msg.angular_velocity.y;
+ curr_ang_vel->z = msg.angular_velocity.z;
+ return;
 }
 
 int main(int argc, char **argv)
@@ -54,8 +74,10 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   /*Init Subscriber functionality*/
-  ros::Subscriber sub = n.subscribe("pwm_const", 1000, pwmValCallback);
+  ros::Subscriber sub_pwm = n.subscribe("pwm_const", 1000, pwmValCallback);
+  ros::Subscriber sub_ang_vel = n.subscribe("imu1/data",1000,imuDataCallback);
 
+  /*Init Gpio Pins*/
   if(gpioInitialise() < 0) return 1;
   gpioSetPWMfrequency(PIN1,PWM_FREQUENCY);
   gpioSetPWMfrequency(PIN2,PWM_FREQUENCY);
@@ -72,6 +94,8 @@ int main(int argc, char **argv)
     ros::spinOnce();
   }
 
+  //When shutdown set pwm out to 0;
+  transfer_pwm(PIN1,PIN2,curr_pwm_values[0], throttle2pwmValues(0)[0]);
   return 0;
 }
 
@@ -121,4 +145,22 @@ void transfer_pwm(int pin_1, int pin_2, int curr_pwm_value, int new_pwm_value)
        gpioDelay(500000);
      }
   }
+}
+
+int start_procedure(int pin_1, int pin_2){
+
+
+
+	for(int cycles =0; cycles <1; cycles++){
+		for(int i =10; i<=20; i++){
+		gpioPWM(pin_1,throttle2pwmValues(0)[i]);
+        	gpioPWM(pin_2,throttle2pwmValues(0)[i]);
+        	gpioDelay(500000);
+		}
+		gpioPWM(pin_1,throttle2pwmValues(0)[0]);
+        	gpioPWM(pin_2,throttle2pwmValues(0)[0]);
+        	gpioDelay(5000000);
+	}
+
+return 1;
 }
