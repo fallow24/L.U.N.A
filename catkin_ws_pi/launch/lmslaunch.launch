@@ -1,0 +1,9 @@
+<launch>
+  <arg name="host" default="192.168.0.12"/>
+  <node pkg="lms1xx" name="lms1xx" type="LMS1xx_node" output="screen">
+    <param name="host" value="$(arg host)" />
+    <param name="frame_id" value="front_laser" />
+  </node>
+  <node pkg="tf" type="static_transform_publisher" name="laser_tf_publisher"
+	 args="0 0 0.03 1.570796327 0 0 imu_base front_laser 100" />  
+</launch>

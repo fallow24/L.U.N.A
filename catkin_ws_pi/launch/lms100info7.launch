@@ -1,0 +1,6 @@
+<launch>
+    <rosparam command="load" file="$(find lms100)/config/parameters.yaml"/>
+    <node pkg="lms100" name="sick_front" type="sicksensor"/>
+    <node pkg="tf" type="static_transform_publisher" name="laser_tf_publisher"
+         args="0 0 0.03 1.570796327 0 0 imu_base front_laser 100" />
+</launch>
