@@ -1,0 +1,267 @@
+\hypertarget{classlms100__cola}{}\doxysection{lms100\+\_\+cola Class Reference}
+\label{classlms100__cola}\index{lms100\_cola@{lms100\_cola}}
+
+
+{\ttfamily \#include $<$lms100\+\_\+cola.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlms100__cola_a00dfc29a742397df817b37481c8bda9d}{lms100\+\_\+cola}} (const char $\ast$\+\_\+hostname, int \+\_\+portno, int \+\_\+verbose)
+\item 
+void \mbox{\hyperlink{classlms100__cola_a24ce13e755f073d390b821b2adb5ba84}{wait}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_ae481c4dc57e9ded756d69fe3a95a19fc}{Main\+Setup}} ()
+\item 
+void \mbox{\hyperlink{classlms100__cola_a412473b962f2eba35278915f73b5c355}{Main\+Quit}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_adab80e116d37e9f4e8bc1a5a79273d21}{Connect}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_a026aa963fd497e6d278a1c459f2ef704}{Disconnect}} ()
+\item 
+void \mbox{\hyperlink{classlms100__cola_a28fca8ab8e046d609b5679c40c74d837}{Save\+Result}} (F\+I\+LE $\ast$file)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a48a9016b94a0f7831b8e5ec4c1ab824b}{Set\+Resolution\+And\+Frequency}} (float freq, float ang\+\_\+res, float angle\+\_\+start, float angle\+\_\+stop)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a4e0e5d4d7426c79c35c9580d043f1653}{Start\+Measurement}} (bool intensity=true)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a8b2c147b7fdeba7d54f8f8d3c26b0ee8}{Stop\+Measurement}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_ac3e41a5f3ef3e41558316e1148ee298b}{Set\+User\+Level}} (int8\+\_\+t userlevel, const char $\ast$password)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a6d210cce326ed0746a62c53f29fb69d8}{Get\+M\+A\+C\+Address}} (char $\ast$$\ast$macadress)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a75e5dbe6c5bf2a23f53160744800a74f}{Set\+IP}} (char $\ast$ip)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a652443c8e23af38806764258c20759c7}{Set\+Gateway}} (char $\ast$gw)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a4ff2db668db2a8e4dcaa7da2b2ea22a2}{Set\+Netmask}} (char $\ast$mask)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a4fe0211714f16817d687b64c319e7738}{Set\+Port}} (uint16\+\_\+t port)
+\item 
+int \mbox{\hyperlink{classlms100__cola_a449b3bd0120625814c89285966c1496c}{Reset\+Device}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_ac4bfecb4d612aaca9bb5c99cddccdab0}{Terminate\+Configuration}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_a0f8fbde09df35d9fe2f5fd2c52e1570d}{Send\+Command}} (const char $\ast$cmd)
+\item 
+int \mbox{\hyperlink{classlms100__cola_ad5cefc4dd7c91cc105b1c060756823b1}{Read\+Result}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_a5ab51fbfd3a18276ed41ea6b4e8d6bfe}{Read\+Answer}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_a5fa1a067c50aedb3bef54371e8490b77}{Read\+Confirmation\+And\+Answer}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_a7f913c9e7c09b721348469c9cf664599}{Enable\+R\+IS}} (int onoff)
+\item 
+int \mbox{\hyperlink{classlms100__cola_ad33843d480e87ac0b9b140460a660872}{Set\+Mean\+Filter\+Parameters}} (int num\+\_\+scans)
+\item 
+int \mbox{\hyperlink{classlms100__cola_adacd6755f2b5f199fd93bb029ac69cc0}{Set\+Range\+Filter\+Parameters}} (float $\ast$ranges)
+\item 
+int \mbox{\hyperlink{classlms100__cola_ae962742da559abc6e5dffd19116dcf69}{Enable\+Filters}} (int filter\+\_\+mask)
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{classlms100__cola_af403c17292842fee3ed3216847546206}{Parse\+IP}} (char $\ast$ip)
+\item 
+void \mbox{\hyperlink{classlms100__cola_a6644b0c1a5235418e12012cc980939d6}{Parse\+Result}} ()
+\item 
+int \mbox{\hyperlink{classlms100__cola_af210cb5bc3b6d5063d5439898acfc063}{get\+N\+R\+Meas}} ()
+\item 
+double $\ast$ \mbox{\hyperlink{classlms100__cola_afbc15d4a04bf2c06badccf007ca48a90}{get\+Meas}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file lms100\+\_\+cola.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlms100__cola_a00dfc29a742397df817b37481c8bda9d}\label{classlms100__cola_a00dfc29a742397df817b37481c8bda9d}} 
+\index{lms100\_cola@{lms100\_cola}!lms100\_cola@{lms100\_cola}}
+\index{lms100\_cola@{lms100\_cola}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{lms100\_cola()}{lms100\_cola()}}
+{\footnotesize\ttfamily lms100\+\_\+cola\+::lms100\+\_\+cola (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+hostname,  }\item[{int}]{\+\_\+portno,  }\item[{int}]{\+\_\+verbose }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlms100__cola_adab80e116d37e9f4e8bc1a5a79273d21}\label{classlms100__cola_adab80e116d37e9f4e8bc1a5a79273d21}} 
+\index{lms100\_cola@{lms100\_cola}!Connect@{Connect}}
+\index{Connect@{Connect}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a026aa963fd497e6d278a1c459f2ef704}\label{classlms100__cola_a026aa963fd497e6d278a1c459f2ef704}} 
+\index{lms100\_cola@{lms100\_cola}!Disconnect@{Disconnect}}
+\index{Disconnect@{Disconnect}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{Disconnect()}{Disconnect()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ae962742da559abc6e5dffd19116dcf69}\label{classlms100__cola_ae962742da559abc6e5dffd19116dcf69}} 
+\index{lms100\_cola@{lms100\_cola}!EnableFilters@{EnableFilters}}
+\index{EnableFilters@{EnableFilters}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{EnableFilters()}{EnableFilters()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Enable\+Filters (\begin{DoxyParamCaption}\item[{int}]{filter\+\_\+mask }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a7f913c9e7c09b721348469c9cf664599}\label{classlms100__cola_a7f913c9e7c09b721348469c9cf664599}} 
+\index{lms100\_cola@{lms100\_cola}!EnableRIS@{EnableRIS}}
+\index{EnableRIS@{EnableRIS}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{EnableRIS()}{EnableRIS()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Enable\+R\+IS (\begin{DoxyParamCaption}\item[{int}]{onoff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a6d210cce326ed0746a62c53f29fb69d8}\label{classlms100__cola_a6d210cce326ed0746a62c53f29fb69d8}} 
+\index{lms100\_cola@{lms100\_cola}!GetMACAddress@{GetMACAddress}}
+\index{GetMACAddress@{GetMACAddress}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{GetMACAddress()}{GetMACAddress()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Get\+M\+A\+C\+Address (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{macadress }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_afbc15d4a04bf2c06badccf007ca48a90}\label{classlms100__cola_afbc15d4a04bf2c06badccf007ca48a90}} 
+\index{lms100\_cola@{lms100\_cola}!getMeas@{getMeas}}
+\index{getMeas@{getMeas}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{getMeas()}{getMeas()}}
+{\footnotesize\ttfamily double$\ast$ lms100\+\_\+cola\+::get\+Meas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_af210cb5bc3b6d5063d5439898acfc063}\label{classlms100__cola_af210cb5bc3b6d5063d5439898acfc063}} 
+\index{lms100\_cola@{lms100\_cola}!getNRMeas@{getNRMeas}}
+\index{getNRMeas@{getNRMeas}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{getNRMeas()}{getNRMeas()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::get\+N\+R\+Meas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a412473b962f2eba35278915f73b5c355}\label{classlms100__cola_a412473b962f2eba35278915f73b5c355}} 
+\index{lms100\_cola@{lms100\_cola}!MainQuit@{MainQuit}}
+\index{MainQuit@{MainQuit}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{MainQuit()}{MainQuit()}}
+{\footnotesize\ttfamily void lms100\+\_\+cola\+::\+Main\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ae481c4dc57e9ded756d69fe3a95a19fc}\label{classlms100__cola_ae481c4dc57e9ded756d69fe3a95a19fc}} 
+\index{lms100\_cola@{lms100\_cola}!MainSetup@{MainSetup}}
+\index{MainSetup@{MainSetup}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{MainSetup()}{MainSetup()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Main\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_af403c17292842fee3ed3216847546206}\label{classlms100__cola_af403c17292842fee3ed3216847546206}} 
+\index{lms100\_cola@{lms100\_cola}!ParseIP@{ParseIP}}
+\index{ParseIP@{ParseIP}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ParseIP()}{ParseIP()}}
+{\footnotesize\ttfamily unsigned char$\ast$ lms100\+\_\+cola\+::\+Parse\+IP (\begin{DoxyParamCaption}\item[{char $\ast$}]{ip }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a6644b0c1a5235418e12012cc980939d6}\label{classlms100__cola_a6644b0c1a5235418e12012cc980939d6}} 
+\index{lms100\_cola@{lms100\_cola}!ParseResult@{ParseResult}}
+\index{ParseResult@{ParseResult}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ParseResult()}{ParseResult()}}
+{\footnotesize\ttfamily void lms100\+\_\+cola\+::\+Parse\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a5ab51fbfd3a18276ed41ea6b4e8d6bfe}\label{classlms100__cola_a5ab51fbfd3a18276ed41ea6b4e8d6bfe}} 
+\index{lms100\_cola@{lms100\_cola}!ReadAnswer@{ReadAnswer}}
+\index{ReadAnswer@{ReadAnswer}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ReadAnswer()}{ReadAnswer()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Read\+Answer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a5fa1a067c50aedb3bef54371e8490b77}\label{classlms100__cola_a5fa1a067c50aedb3bef54371e8490b77}} 
+\index{lms100\_cola@{lms100\_cola}!ReadConfirmationAndAnswer@{ReadConfirmationAndAnswer}}
+\index{ReadConfirmationAndAnswer@{ReadConfirmationAndAnswer}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ReadConfirmationAndAnswer()}{ReadConfirmationAndAnswer()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Read\+Confirmation\+And\+Answer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ad5cefc4dd7c91cc105b1c060756823b1}\label{classlms100__cola_ad5cefc4dd7c91cc105b1c060756823b1}} 
+\index{lms100\_cola@{lms100\_cola}!ReadResult@{ReadResult}}
+\index{ReadResult@{ReadResult}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ReadResult()}{ReadResult()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Read\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a449b3bd0120625814c89285966c1496c}\label{classlms100__cola_a449b3bd0120625814c89285966c1496c}} 
+\index{lms100\_cola@{lms100\_cola}!ResetDevice@{ResetDevice}}
+\index{ResetDevice@{ResetDevice}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{ResetDevice()}{ResetDevice()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Reset\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a28fca8ab8e046d609b5679c40c74d837}\label{classlms100__cola_a28fca8ab8e046d609b5679c40c74d837}} 
+\index{lms100\_cola@{lms100\_cola}!SaveResult@{SaveResult}}
+\index{SaveResult@{SaveResult}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SaveResult()}{SaveResult()}}
+{\footnotesize\ttfamily void lms100\+\_\+cola\+::\+Save\+Result (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a0f8fbde09df35d9fe2f5fd2c52e1570d}\label{classlms100__cola_a0f8fbde09df35d9fe2f5fd2c52e1570d}} 
+\index{lms100\_cola@{lms100\_cola}!SendCommand@{SendCommand}}
+\index{SendCommand@{SendCommand}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SendCommand()}{SendCommand()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Send\+Command (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a652443c8e23af38806764258c20759c7}\label{classlms100__cola_a652443c8e23af38806764258c20759c7}} 
+\index{lms100\_cola@{lms100\_cola}!SetGateway@{SetGateway}}
+\index{SetGateway@{SetGateway}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetGateway()}{SetGateway()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Gateway (\begin{DoxyParamCaption}\item[{char $\ast$}]{gw }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a75e5dbe6c5bf2a23f53160744800a74f}\label{classlms100__cola_a75e5dbe6c5bf2a23f53160744800a74f}} 
+\index{lms100\_cola@{lms100\_cola}!SetIP@{SetIP}}
+\index{SetIP@{SetIP}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetIP()}{SetIP()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+IP (\begin{DoxyParamCaption}\item[{char $\ast$}]{ip }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ad33843d480e87ac0b9b140460a660872}\label{classlms100__cola_ad33843d480e87ac0b9b140460a660872}} 
+\index{lms100\_cola@{lms100\_cola}!SetMeanFilterParameters@{SetMeanFilterParameters}}
+\index{SetMeanFilterParameters@{SetMeanFilterParameters}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetMeanFilterParameters()}{SetMeanFilterParameters()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Mean\+Filter\+Parameters (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+scans }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a4ff2db668db2a8e4dcaa7da2b2ea22a2}\label{classlms100__cola_a4ff2db668db2a8e4dcaa7da2b2ea22a2}} 
+\index{lms100\_cola@{lms100\_cola}!SetNetmask@{SetNetmask}}
+\index{SetNetmask@{SetNetmask}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetNetmask()}{SetNetmask()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Netmask (\begin{DoxyParamCaption}\item[{char $\ast$}]{mask }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a4fe0211714f16817d687b64c319e7738}\label{classlms100__cola_a4fe0211714f16817d687b64c319e7738}} 
+\index{lms100\_cola@{lms100\_cola}!SetPort@{SetPort}}
+\index{SetPort@{SetPort}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetPort()}{SetPort()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Port (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_adacd6755f2b5f199fd93bb029ac69cc0}\label{classlms100__cola_adacd6755f2b5f199fd93bb029ac69cc0}} 
+\index{lms100\_cola@{lms100\_cola}!SetRangeFilterParameters@{SetRangeFilterParameters}}
+\index{SetRangeFilterParameters@{SetRangeFilterParameters}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetRangeFilterParameters()}{SetRangeFilterParameters()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Range\+Filter\+Parameters (\begin{DoxyParamCaption}\item[{float $\ast$}]{ranges }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a48a9016b94a0f7831b8e5ec4c1ab824b}\label{classlms100__cola_a48a9016b94a0f7831b8e5ec4c1ab824b}} 
+\index{lms100\_cola@{lms100\_cola}!SetResolutionAndFrequency@{SetResolutionAndFrequency}}
+\index{SetResolutionAndFrequency@{SetResolutionAndFrequency}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetResolutionAndFrequency()}{SetResolutionAndFrequency()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+Resolution\+And\+Frequency (\begin{DoxyParamCaption}\item[{float}]{freq,  }\item[{float}]{ang\+\_\+res,  }\item[{float}]{angle\+\_\+start,  }\item[{float}]{angle\+\_\+stop }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ac3e41a5f3ef3e41558316e1148ee298b}\label{classlms100__cola_ac3e41a5f3ef3e41558316e1148ee298b}} 
+\index{lms100\_cola@{lms100\_cola}!SetUserLevel@{SetUserLevel}}
+\index{SetUserLevel@{SetUserLevel}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{SetUserLevel()}{SetUserLevel()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Set\+User\+Level (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{userlevel,  }\item[{const char $\ast$}]{password }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a4e0e5d4d7426c79c35c9580d043f1653}\label{classlms100__cola_a4e0e5d4d7426c79c35c9580d043f1653}} 
+\index{lms100\_cola@{lms100\_cola}!StartMeasurement@{StartMeasurement}}
+\index{StartMeasurement@{StartMeasurement}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{StartMeasurement()}{StartMeasurement()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Start\+Measurement (\begin{DoxyParamCaption}\item[{bool}]{intensity = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a8b2c147b7fdeba7d54f8f8d3c26b0ee8}\label{classlms100__cola_a8b2c147b7fdeba7d54f8f8d3c26b0ee8}} 
+\index{lms100\_cola@{lms100\_cola}!StopMeasurement@{StopMeasurement}}
+\index{StopMeasurement@{StopMeasurement}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{StopMeasurement()}{StopMeasurement()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Stop\+Measurement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_ac4bfecb4d612aaca9bb5c99cddccdab0}\label{classlms100__cola_ac4bfecb4d612aaca9bb5c99cddccdab0}} 
+\index{lms100\_cola@{lms100\_cola}!TerminateConfiguration@{TerminateConfiguration}}
+\index{TerminateConfiguration@{TerminateConfiguration}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{TerminateConfiguration()}{TerminateConfiguration()}}
+{\footnotesize\ttfamily int lms100\+\_\+cola\+::\+Terminate\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlms100__cola_a24ce13e755f073d390b821b2adb5ba84}\label{classlms100__cola_a24ce13e755f073d390b821b2adb5ba84}} 
+\index{lms100\_cola@{lms100\_cola}!wait@{wait}}
+\index{wait@{wait}!lms100\_cola@{lms100\_cola}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily void lms100\+\_\+cola\+::wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/lms100/src/\mbox{\hyperlink{lms100__cola_8h}{lms100\+\_\+cola.\+h}}\end{DoxyCompactItemize}

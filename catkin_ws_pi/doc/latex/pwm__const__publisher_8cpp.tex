@@ -1,0 +1,230 @@
+\hypertarget{pwm__const__publisher_8cpp}{}\doxysection{src/pwm\+\_\+commander/src/pwm\+\_\+const\+\_\+publisher.cpp File Reference}
+\label{pwm__const__publisher_8cpp}\index{src/pwm\_commander/src/pwm\_const\_publisher.cpp@{src/pwm\_commander/src/pwm\_const\_publisher.cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}threshold.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for pwm\+\_\+const\+\_\+publisher.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pwm__const__publisher_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pwm__const__publisher_8cpp_ae327e25713fc595fa87fecc369fca439}{new\+Pwm\+Entry\+Callback}} (const std\+\_\+msgs\+::\+String\+::\+Const\+Ptr \&msg)
+\item 
+void \mbox{\hyperlink{pwm__const__publisher_8cpp_a60b116f4343aa627fd2d907bc794ee5e}{imu\+Callback}} (const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&msg)
+\item 
+void \mbox{\hyperlink{pwm__const__publisher_8cpp_a3d237fa9117ad9256a73b15770c6563f}{vel\+Callback}} (const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&msg)
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_ab3861d797ef9ac4ebcd7f8fc4645feeb}{P\+WM}} = 0
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_a31a0a4877a686aa30e0a61f7033d7ccb}{current\+P\+WM}} = 0
+\item 
+char \mbox{\hyperlink{pwm__const__publisher_8cpp_a000e34997df38c2005a83d63e67d9282}{mode}} = \textquotesingle{}d\textquotesingle{}
+\item 
+bool \mbox{\hyperlink{pwm__const__publisher_8cpp_a6a3b34478a5869e02572ed1a25dc6241}{vib\+Con}} = 0
+\item 
+bool \mbox{\hyperlink{pwm__const__publisher_8cpp_afebb977407ac6958af48af1cecb4f965}{hysterese}} =false
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_af0e842a53b6692a1e808f86da5741152}{loop\+Count}} = 0
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_ae1c3f317538e6db56af74841f3da0e67}{smoothness\+Factor}} = 5
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_ac57907ca9c114ba493c957a6c5755a80}{vib\+Threshold}} = 8
+\item 
+int \mbox{\hyperlink{pwm__const__publisher_8cpp_a9e8f355b6d5cbaeba35c7810c89a006b}{vib\+Threshold2}} = 5
+\item 
+\mbox{\hyperlink{class_deviation}{Deviation}} \mbox{\hyperlink{pwm__const__publisher_8cpp_ab5d9eeb673c1acbb5b33d058f23010d2}{s\+\_\+x}} (30)
+\item 
+\mbox{\hyperlink{class_deviation}{Deviation}} \mbox{\hyperlink{pwm__const__publisher_8cpp_a102ac8aa81f9bfb96466441bb791136c}{s\+\_\+y}} (30)
+\item 
+\mbox{\hyperlink{class_deviation}{Deviation}} \mbox{\hyperlink{pwm__const__publisher_8cpp_a51651048d9636471ea8fb78a0f244c71}{s\+\_\+z}} (30)
+\item 
+double \mbox{\hyperlink{pwm__const__publisher_8cpp_aba71343cc7443b7649c16aa8e022f085}{rot\+\_\+vel}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{pwm__const__publisher_8cpp_a4b0f0a20658ce86428b3b7f48de986a6}{deviation\+\_\+publisher}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a60b116f4343aa627fd2d907bc794ee5e}\label{pwm__const__publisher_8cpp_a60b116f4343aa627fd2d907bc794ee5e}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!imuCallback@{imuCallback}}
+\index{imuCallback@{imuCallback}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{imuCallback()}{imuCallback()}}
+{\footnotesize\ttfamily void imu\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 101 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{pwm__const__publisher_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!main@{main}}
+\index{main@{main}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_ae327e25713fc595fa87fecc369fca439}\label{pwm__const__publisher_8cpp_ae327e25713fc595fa87fecc369fca439}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!newPwmEntryCallback@{newPwmEntryCallback}}
+\index{newPwmEntryCallback@{newPwmEntryCallback}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{newPwmEntryCallback()}{newPwmEntryCallback()}}
+{\footnotesize\ttfamily void new\+Pwm\+Entry\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+String\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a3d237fa9117ad9256a73b15770c6563f}\label{pwm__const__publisher_8cpp_a3d237fa9117ad9256a73b15770c6563f}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!velCallback@{velCallback}}
+\index{velCallback@{velCallback}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{velCallback()}{velCallback()}}
+{\footnotesize\ttfamily void vel\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a31a0a4877a686aa30e0a61f7033d7ccb}\label{pwm__const__publisher_8cpp_a31a0a4877a686aa30e0a61f7033d7ccb}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!currentPWM@{currentPWM}}
+\index{currentPWM@{currentPWM}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{currentPWM}{currentPWM}}
+{\footnotesize\ttfamily int current\+P\+WM = 0}
+
+
+
+Definition at line 9 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a4b0f0a20658ce86428b3b7f48de986a6}\label{pwm__const__publisher_8cpp_a4b0f0a20658ce86428b3b7f48de986a6}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!deviation\_publisher@{deviation\_publisher}}
+\index{deviation\_publisher@{deviation\_publisher}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{deviation\_publisher}{deviation\_publisher}}
+{\footnotesize\ttfamily ros\+::\+Publisher deviation\+\_\+publisher}
+
+
+
+Definition at line 43 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_afebb977407ac6958af48af1cecb4f965}\label{pwm__const__publisher_8cpp_afebb977407ac6958af48af1cecb4f965}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!hysterese@{hysterese}}
+\index{hysterese@{hysterese}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{hysterese}{hysterese}}
+{\footnotesize\ttfamily bool hysterese =false}
+
+
+
+Definition at line 23 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_af0e842a53b6692a1e808f86da5741152}\label{pwm__const__publisher_8cpp_af0e842a53b6692a1e808f86da5741152}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!loopCount@{loopCount}}
+\index{loopCount@{loopCount}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{loopCount}{loopCount}}
+{\footnotesize\ttfamily int loop\+Count = 0}
+
+
+
+Definition at line 26 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a000e34997df38c2005a83d63e67d9282}\label{pwm__const__publisher_8cpp_a000e34997df38c2005a83d63e67d9282}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!mode@{mode}}
+\index{mode@{mode}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily char mode = \textquotesingle{}d\textquotesingle{}}
+
+
+
+Definition at line 21 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_ab3861d797ef9ac4ebcd7f8fc4645feeb}\label{pwm__const__publisher_8cpp_ab3861d797ef9ac4ebcd7f8fc4645feeb}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!PWM@{PWM}}
+\index{PWM@{PWM}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{PWM}{PWM}}
+{\footnotesize\ttfamily int P\+WM = 0}
+
+
+
+Definition at line 8 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_aba71343cc7443b7649c16aa8e022f085}\label{pwm__const__publisher_8cpp_aba71343cc7443b7649c16aa8e022f085}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!rot\_vel@{rot\_vel}}
+\index{rot\_vel@{rot\_vel}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{rot\_vel}{rot\_vel}}
+{\footnotesize\ttfamily double rot\+\_\+vel}
+
+
+
+Definition at line 40 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_ab5d9eeb673c1acbb5b33d058f23010d2}\label{pwm__const__publisher_8cpp_ab5d9eeb673c1acbb5b33d058f23010d2}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!s\_x@{s\_x}}
+\index{s\_x@{s\_x}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{s\_x}{s\_x}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_deviation}{Deviation}} s\+\_\+x(30)}
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a102ac8aa81f9bfb96466441bb791136c}\label{pwm__const__publisher_8cpp_a102ac8aa81f9bfb96466441bb791136c}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!s\_y@{s\_y}}
+\index{s\_y@{s\_y}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{s\_y}{s\_y}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_deviation}{Deviation}} s\+\_\+y(30)}
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a51651048d9636471ea8fb78a0f244c71}\label{pwm__const__publisher_8cpp_a51651048d9636471ea8fb78a0f244c71}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!s\_z@{s\_z}}
+\index{s\_z@{s\_z}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{s\_z}{s\_z}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_deviation}{Deviation}} s\+\_\+z(30)}
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_ae1c3f317538e6db56af74841f3da0e67}\label{pwm__const__publisher_8cpp_ae1c3f317538e6db56af74841f3da0e67}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!smoothnessFactor@{smoothnessFactor}}
+\index{smoothnessFactor@{smoothnessFactor}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{smoothnessFactor}{smoothnessFactor}}
+{\footnotesize\ttfamily int smoothness\+Factor = 5}
+
+
+
+Definition at line 29 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a6a3b34478a5869e02572ed1a25dc6241}\label{pwm__const__publisher_8cpp_a6a3b34478a5869e02572ed1a25dc6241}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!vibCon@{vibCon}}
+\index{vibCon@{vibCon}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{vibCon}{vibCon}}
+{\footnotesize\ttfamily bool vib\+Con = 0}
+
+
+
+Definition at line 22 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_ac57907ca9c114ba493c957a6c5755a80}\label{pwm__const__publisher_8cpp_ac57907ca9c114ba493c957a6c5755a80}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!vibThreshold@{vibThreshold}}
+\index{vibThreshold@{vibThreshold}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{vibThreshold}{vibThreshold}}
+{\footnotesize\ttfamily int vib\+Threshold = 8}
+
+
+
+Definition at line 31 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+
+\mbox{\Hypertarget{pwm__const__publisher_8cpp_a9e8f355b6d5cbaeba35c7810c89a006b}\label{pwm__const__publisher_8cpp_a9e8f355b6d5cbaeba35c7810c89a006b}} 
+\index{pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}!vibThreshold2@{vibThreshold2}}
+\index{vibThreshold2@{vibThreshold2}!pwm\_const\_publisher.cpp@{pwm\_const\_publisher.cpp}}
+\doxysubsubsection{\texorpdfstring{vibThreshold2}{vibThreshold2}}
+{\footnotesize\ttfamily int vib\+Threshold2 = 5}
+
+
+
+Definition at line 32 of file pwm\+\_\+const\+\_\+publisher.\+cpp.
+

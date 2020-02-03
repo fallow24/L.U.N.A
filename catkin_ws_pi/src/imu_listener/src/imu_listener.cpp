@@ -18,14 +18,23 @@ using std::ofstream;
 using std::cout;
 using std::endl;
 
+/*!
+ * Function that gets called whenever new IMU Data is received.
+ * IMU 1: Side IMU. Gathers x component of rotation speed.
+ * IMU 2: Bottom IMU. Gathers z component of rotation speed.
+ * IMU 3: Front IMU. Gathers y component of rotation speed.
+ */
 void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg);
 
-// rotation speeds
-double wx;
-double wy;
-double wz;
+//! Rotation Speed around x 
+double wx; 
+//! Rotation Speed around y  
+double wy; 
+//! Rotation Speed around z 
+double wz; 
 
-bool quietmode = false;
+//! Set this to true to supress ROS_INFO output
+bool quietmode = false; 
 
 ros::Publisher pub;
 
@@ -54,7 +63,8 @@ int main(int argc, char **argv) {
         return 0;
 }
 
-tf::Quaternion q_bottom;
+//! Orientation of bottom IMU which is used to represent orientation of the vehicle
+tf::Quaternion q_bottom; 
 
 void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
 {
