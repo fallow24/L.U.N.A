@@ -1,0 +1,198 @@
+\hypertarget{point__cloud_8cpp}{}\doxysection{src/point\+\_\+cloud/src/point\+\_\+cloud.cpp File Reference}
+\label{point__cloud_8cpp}\index{src/point\_cloud/src/point\_cloud.cpp@{src/point\_cloud/src/point\_cloud.cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Imu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$tf/transform\+\_\+listener.\+h$>$}\newline
+{\ttfamily \#include $<$tf/transform\+\_\+broadcaster.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}globals.\+icc\char`\"{}}\newline
+Include dependency graph for point\+\_\+cloud.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{point__cloud_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{point__cloud_8cpp_a7112a2b44d8717ff4ee7bb8bc2f81aba}{get\+Transform}} (tf\+::\+Stamped\+Transform \&transform, double $\ast$t, double $\ast$ti, double $\ast$rP, double $\ast$r\+PT)
+\item 
+void \mbox{\hyperlink{point__cloud_8cpp_a09824440867ab32e732af84a86ff4ccf}{L\+M\+S\+Callback}} (const sensor\+\_\+msgs\+::\+Laser\+Scan \&msg)
+\item 
+tf\+::\+Vector3 \mbox{\hyperlink{point__cloud_8cpp_a7fcc7d9e7cb77791f74bf9bd093daa72}{velocity}} (0, 0, 0)
+\begin{DoxyCompactList}\small\item\em Rotation speed of the sphere. \end{DoxyCompactList}\item 
+tf\+::\+Vector3 \mbox{\hyperlink{point__cloud_8cpp_ad9b76bfad04426d5216470a3551d3ae6}{position}} (0, 0, 0)
+\begin{DoxyCompactList}\small\item\em Position of the sphere. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{point__cloud_8cpp_a551a35bf9dd2f240c97cee58251c895d}{I\+M\+U\+Callback}} (const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&msg)
+\item 
+int \mbox{\hyperlink{point__cloud_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{point__cloud_8cpp_aa8df85229a680926ca81b89784e6549b}{output}}
+\item 
+int \mbox{\hyperlink{point__cloud_8cpp_a1601cff5f1369e65dee11311bff8bdb5}{file\+\_\+num}} = 0
+\item 
+tf\+::\+Transform\+Listener $\ast$ \mbox{\hyperlink{point__cloud_8cpp_aa18bff163bc5ba9c927a003de74f172e}{listener}}
+\item 
+bool \mbox{\hyperlink{point__cloud_8cpp_a41a2d1e26c3f53ad4a25c22f7f06f681}{ignored\+\_\+points}} \mbox{[}1080\mbox{]} =\{false\}
+\item 
+bool \mbox{\hyperlink{point__cloud_8cpp_aedeffc7d23da25d52b9a50045189fe2b}{initialized}} = false
+\item 
+const double \mbox{\hyperlink{point__cloud_8cpp_a13553aadcae53676a3eef1d83c046c61}{radius}} = 0.\+125
+\begin{DoxyCompactList}\small\item\em Radius of the sphere in cm. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{point__cloud_8cpp_ab3742e1445f567debea67a2a948b16fe}{last\+\_\+time}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{point__cloud_8cpp_a7112a2b44d8717ff4ee7bb8bc2f81aba}\label{point__cloud_8cpp_a7112a2b44d8717ff4ee7bb8bc2f81aba}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!getTransform@{getTransform}}
+\index{getTransform@{getTransform}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{getTransform()}{getTransform()}}
+{\footnotesize\ttfamily void get\+Transform (\begin{DoxyParamCaption}\item[{tf\+::\+Stamped\+Transform \&}]{transform,  }\item[{double $\ast$}]{t,  }\item[{double $\ast$}]{ti,  }\item[{double $\ast$}]{rP,  }\item[{double $\ast$}]{r\+PT }\end{DoxyParamCaption})}
+
+Get the transformation matrices and vectors ~\newline
+ needed for the pose combination of the I\+MU and the Laserscanner. 
+
+Definition at line 23 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_a551a35bf9dd2f240c97cee58251c895d}\label{point__cloud_8cpp_a551a35bf9dd2f240c97cee58251c895d}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!IMUCallback@{IMUCallback}}
+\index{IMUCallback@{IMUCallback}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{IMUCallback()}{IMUCallback()}}
+{\footnotesize\ttfamily void I\+M\+U\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+Gets called when new I\+MU data is ready. ~\newline
+ Reads the orientation of the I\+MU and transform it into the /world frame. ~\newline
+ Calculates the P\+O\+SE and publishes the transformation between the /imu\+\_\+base and the /world frame. 
+
+Definition at line 168 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_a09824440867ab32e732af84a86ff4ccf}\label{point__cloud_8cpp_a09824440867ab32e732af84a86ff4ccf}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!LMSCallback@{LMSCallback}}
+\index{LMSCallback@{LMSCallback}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{LMSCallback()}{LMSCallback()}}
+{\footnotesize\ttfamily void L\+M\+S\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan \&}]{msg }\end{DoxyParamCaption})}
+
+Gets called when new Laserscan data is ready. ~\newline
+ Looks up the transform between the /world frame and the /front\+\_\+laser frame. (This transform can be found in the .launch file of the L\+MS) ~\newline
+ Transforms the laserscan data into the /world frame, ~\newline
+ then saves the pose and the 3D data into scanfiles. 
+
+Definition at line 70 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{point__cloud_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!main@{main}}
+\index{main@{main}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 207 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_ad9b76bfad04426d5216470a3551d3ae6}\label{point__cloud_8cpp_ad9b76bfad04426d5216470a3551d3ae6}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!position@{position}}
+\index{position@{position}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily tf\+::\+Vector3 position (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{0}]{ }\end{DoxyParamCaption})}
+
+
+
+Position of the sphere. 
+
+\mbox{\Hypertarget{point__cloud_8cpp_a7fcc7d9e7cb77791f74bf9bd093daa72}\label{point__cloud_8cpp_a7fcc7d9e7cb77791f74bf9bd093daa72}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!velocity@{velocity}}
+\index{velocity@{velocity}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{velocity()}{velocity()}}
+{\footnotesize\ttfamily tf\+::\+Vector3 velocity (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{0}]{,  }\item[{0}]{ }\end{DoxyParamCaption})}
+
+
+
+Rotation speed of the sphere. 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{point__cloud_8cpp_a1601cff5f1369e65dee11311bff8bdb5}\label{point__cloud_8cpp_a1601cff5f1369e65dee11311bff8bdb5}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!file\_num@{file\_num}}
+\index{file\_num@{file\_num}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{file\_num}{file\_num}}
+{\footnotesize\ttfamily int file\+\_\+num = 0}
+
+
+
+Definition at line 13 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_a41a2d1e26c3f53ad4a25c22f7f06f681}\label{point__cloud_8cpp_a41a2d1e26c3f53ad4a25c22f7f06f681}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!ignored\_points@{ignored\_points}}
+\index{ignored\_points@{ignored\_points}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{ignored\_points}{ignored\_points}}
+{\footnotesize\ttfamily bool ignored\+\_\+points\mbox{[}1080\mbox{]} =\{false\}}
+
+
+
+Definition at line 16 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_aedeffc7d23da25d52b9a50045189fe2b}\label{point__cloud_8cpp_aedeffc7d23da25d52b9a50045189fe2b}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!initialized@{initialized}}
+\index{initialized@{initialized}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily bool initialized = false}
+
+
+
+Definition at line 17 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_ab3742e1445f567debea67a2a948b16fe}\label{point__cloud_8cpp_ab3742e1445f567debea67a2a948b16fe}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!last\_time@{last\_time}}
+\index{last\_time@{last\_time}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{last\_time}{last\_time}}
+{\footnotesize\ttfamily double last\+\_\+time = 0}
+
+
+
+Definition at line 155 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_aa18bff163bc5ba9c927a003de74f172e}\label{point__cloud_8cpp_aa18bff163bc5ba9c927a003de74f172e}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!listener@{listener}}
+\index{listener@{listener}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{listener}{listener}}
+{\footnotesize\ttfamily tf\+::\+Transform\+Listener$\ast$ listener}
+
+
+
+Definition at line 14 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_aa8df85229a680926ca81b89784e6549b}\label{point__cloud_8cpp_aa8df85229a680926ca81b89784e6549b}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!output@{output}}
+\index{output@{output}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily std\+::ofstream output}
+
+
+
+Definition at line 12 of file point\+\_\+cloud.\+cpp.
+
+\mbox{\Hypertarget{point__cloud_8cpp_a13553aadcae53676a3eef1d83c046c61}\label{point__cloud_8cpp_a13553aadcae53676a3eef1d83c046c61}} 
+\index{point\_cloud.cpp@{point\_cloud.cpp}!radius@{radius}}
+\index{radius@{radius}!point\_cloud.cpp@{point\_cloud.cpp}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily const double radius = 0.\+125}
+
+
+
+Radius of the sphere in cm. 
+
+
+
+Definition at line 154 of file point\+\_\+cloud.\+cpp.
+
