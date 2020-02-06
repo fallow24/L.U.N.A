@@ -6,16 +6,22 @@
 #include <stdio.h>
 #include <sstream>
 
-//How fast should we go (motor throttle)?
-// Positive = forwards
-// Negative = backwards
+/*! How fast should we go (motor throttle)? <br>
+ * Positive = forwards <br>
+ * Negative = backwards <br>
+ */ 
 int throttle = 0;
+
 const int PWM_RANGE = 2000;
 const int PWM_FREQUENCY = 50;
 const double MAX_ROT_SPEED = 3.5;
-//Current pwm values required for diff calculation
+
+//! Current pwm values required for diff calculation
 int curr_pwm_values[2] = {100,100};
+
+//! Current angular velocity (3D)
 geometry_msgs::Vector3* curr_ang_vel = new geometry_msgs::Vector3();
+
 //Constants
 const int PIN1 = 18;
 const int PIN2 = 23;
@@ -23,21 +29,25 @@ const int PIN2 = 23;
 /*Requiredd Subfunction declaration*/
 
 
-//start procedure
+//! Start procedure
 int start_procedure(int pin_1, int pin_2);
 
-//Arms the ESC
+//! Arms the ESC
 void init_esc(int pin);
 
-//Computes the pwm values for both motors
-//given a vehicle throttle precentage
+/*! 
+ * Computes the pwm values for both motors <br> 
+ * given a vehicle throttle precentage.
+ */ 
 int* throttle2pwmValues(int throttle);
 
-//Transfers the pwm value smoothly
-//for each 1% of throttle it takes 0.5s
+/*! 
+ * Transfers the pwm value smoothly
+ * for each 1% of throttle it takes 0.5s
+ */ 
 void transfer_pwm(int pin_1, int pin_2, int curr_pwm_value, int new_pwm_value);
 
-//Called when pwm - data from the const pub is available
+//! Called when pwm data from the const pub is available
 void pwmValCallback(const std_msgs::String::ConstPtr& msg)
 {
   const char* num = msg->data.c_str();
@@ -50,6 +60,7 @@ void pwmValCallback(const std_msgs::String::ConstPtr& msg)
   return;
 }
 
+//! Listens to angular velocity of virutal IMU
 void imuDataCallback(const sensor_msgs::Imu msg)
 {
  curr_ang_vel->x = msg.angular_velocity.x;
@@ -57,6 +68,7 @@ void imuDataCallback(const sensor_msgs::Imu msg)
  curr_ang_vel->z = msg.angular_velocity.z;
  return;
 }
+
 int main(int argc, char **argv)
 {
   /*

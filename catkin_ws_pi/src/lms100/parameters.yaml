@@ -1,7 +1,0 @@
-sick/ip:                "192.168.0.51" #Irma
-sick/port:              2111
-
-sick/fov/min:           -45
-sick/fov/max:           225
-sick/resolution:        0.5
-sick/rate:              100

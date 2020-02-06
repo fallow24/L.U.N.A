@@ -4,44 +4,76 @@
 #include <stdio.h>
 #include <sstream>
 
-
+//! Desired value of PWM signal
 int PWM = 0;
+
+//! Current value of PWM signal 
 int currentPWM = 0;
 
-/*
- * Different modes for the controller can be used. Those are:
- *   d [value] = "Direct feedthrough mode"
- *   s [value] = "Smooth increase / decrease to given value"
- *   x [1/2/3] = "Start sequence 1, 2 or 3"
- *   v [1/0]   = "Switch vibrartion controller on (1)/off (0)"   
- * Some parameters can also be set:
- *   m [value] = "Set smoothnessfactor"
- *   t [value] = "Set vibration deviation threshold"   
+/*!
+ * Different modes for the controller can be used. Those are: <br>
+ *   d [value] = "Direct feedthrough mode" <br>
+ *   s [value] = "Smooth increase / decrease to given value" <br>
+ *   x [1/2/3] = "Start sequence 1, 2 or 3" <br>
+ *   v [1/0]   = "Switch vibrartion controller on (1)/off (0)" <br>  
+ * Some parameters can also be set: <br>
+ *   m [value] = "Set smoothnessfactor" <br>
+ *   t [value] = "Set vibration deviation threshold" <br>   
  */
 char mode = 'd';
+
+/*! 
+ * True if vibration controller is active <br> 
+ * The vibration controller should reduce the vibrations induced by the rotating masses.
+ */ 
 bool vibCon = 0;
-bool hysterese=false;
 
+/*! 
+ * True if strong vibrations occured in within the last few measurements. <br> 
+ * The controller will go in hysterese-mode, which means that the rotation of the masses <br> 
+ * will be slowed down until less vibration is measured.
+ */ 
+bool hysterese = false;
 
+//! Counting variable for the controller.
 int loopCount = 0;
 
-// if mode s, than this is the number of cycles needes per change (5 = 0,5seconds)
+//! Only needed in mode 's'. This is the number of cycles needes per change (5 = 0.5 seconds)
 int smoothnessFactor = 5;
-// Threshold for deviation to define 'high' or 'low' vibration
+
+//! Upper vibration threshold (value is standard deviation) 
 int vibThreshold = 8;
+
+/*!
+ * Lower vibration threshold (value is standard deviation) <br> 
+ * If the standard deviation is comes below this value while being in hysterese mode, 
+ * the hysterese mode will be deactivated.
+ */
 int vibThreshold2 = 5;
 
-// Deviation objects that buffer 30 IMU values and calc deviation
+//! Deviation of 30 values (sliding window) of the x-axis of the accelerometer 
 Deviation s_x(30);
+
+//! Deviation of 30 values (sliding window) of the y-axis of the accelerometer
 Deviation s_y(30);
+
+//! Deviation of 30 values (sliding window) of the z-axis of the accelerometer
 Deviation s_z(30);
 
-// Rotation speed around x axis of the sphere
+//! [UNUSED VARIABLE!] Rotation speed around x axis of the sphere (which is the forward direction)
 double rot_vel;
 
-// (optional) Deviation publisher for debugging reasons
+/*! 
+ * (optional) Deviation publisher for debugging reasons. <br> 
+ * Listen to /deviation topic to see Deviation values.
+ */
 ros::Publisher deviation_publisher;
 
+/*! 
+ * Reads commands as described in the "mode" variable. <br>
+ * Sets the controller to specific mode. <br>
+ * Subscribes to /pwm_call (which is published by pwm_reader node)
+ */ 
 void newPwmEntryCallback(const std_msgs::String::ConstPtr& msg)
 {	
 	const char* command = msg->data.c_str();
@@ -98,6 +130,7 @@ void newPwmEntryCallback(const std_msgs::String::ConstPtr& msg)
 	} 
 }
 
+//! Listens to one IMU and calculates the standard Deviation of the accelerometer in 3 axes <br>
 void imuCallback(const sensor_msgs::Imu::ConstPtr& msg) {
 	s_x.put(msg->linear_acceleration.x);
 	s_y.put(msg->linear_acceleration.y);
@@ -114,6 +147,11 @@ void imuCallback(const sensor_msgs::Imu::ConstPtr& msg) {
 	deviation_publisher.publish(v);        
 }
 
+/*! 
+ * Listens to the angular velocity around the forward direction of the sphere <br> 
+ * Saves the angular velocity into "rot_vel" variable, which is currently unused. <br>
+ * In future work, this could be used to increase the vibration controller performance.
+ */ 
 void velCallback(const sensor_msgs::Imu::ConstPtr& msg) {
 	rot_vel = msg->angular_velocity.x;
 }

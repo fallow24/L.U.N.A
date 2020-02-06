@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L.U.N.A (Host): src/pwm_commander/src/pwm_const_publisher.cpp File Reference</title>
+<title>L.U.N.A (Pi): src/pwm_commander/src/pwm_const_publisher.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="luna_logo_notext.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">L.U.N.A (Host)
+   <div id="projectname">L.U.N.A (Pi)
    </div>
   </td>
  </tr>
@@ -118,6 +118,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ae327e25713fc595fa87fecc369fca439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#ae327e25713fc595fa87fecc369fca439">newPwmEntryCallback</a> (const std_msgs::String::ConstPtr &amp;msg)</td></tr>
 <tr class="separator:ae327e25713fc595fa87fecc369fca439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b116f4343aa627fd2d907bc794ee5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a60b116f4343aa627fd2d907bc794ee5e">imuCallback</a> (const sensor_msgs::Imu::ConstPtr &amp;msg)</td></tr>
+<tr class="memdesc:a60b116f4343aa627fd2d907bc794ee5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens to one IMU and calculates the standard <a class="el" href="class_deviation.html">Deviation</a> of the accelerometer in 3 axes <br  />
+  <a href="pwm__const__publisher_8cpp.html#a60b116f4343aa627fd2d907bc794ee5e">More...</a><br /></td></tr>
 <tr class="separator:a60b116f4343aa627fd2d907bc794ee5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d237fa9117ad9256a73b15770c6563f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a3d237fa9117ad9256a73b15770c6563f">velCallback</a> (const sensor_msgs::Imu::ConstPtr &amp;msg)</td></tr>
 <tr class="separator:a3d237fa9117ad9256a73b15770c6563f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,30 +129,39 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab3861d797ef9ac4ebcd7f8fc4645feeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#ab3861d797ef9ac4ebcd7f8fc4645feeb">PWM</a> = 0</td></tr>
+<tr class="memdesc:ab3861d797ef9ac4ebcd7f8fc4645feeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desired value of PWM signal.  <a href="pwm__const__publisher_8cpp.html#ab3861d797ef9ac4ebcd7f8fc4645feeb">More...</a><br /></td></tr>
 <tr class="separator:ab3861d797ef9ac4ebcd7f8fc4645feeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31a0a4877a686aa30e0a61f7033d7ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a31a0a4877a686aa30e0a61f7033d7ccb">currentPWM</a> = 0</td></tr>
+<tr class="memdesc:a31a0a4877a686aa30e0a61f7033d7ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current value of PWM signal.  <a href="pwm__const__publisher_8cpp.html#a31a0a4877a686aa30e0a61f7033d7ccb">More...</a><br /></td></tr>
 <tr class="separator:a31a0a4877a686aa30e0a61f7033d7ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a000e34997df38c2005a83d63e67d9282"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a000e34997df38c2005a83d63e67d9282">mode</a> = 'd'</td></tr>
 <tr class="separator:a000e34997df38c2005a83d63e67d9282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3b34478a5869e02572ed1a25dc6241"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a6a3b34478a5869e02572ed1a25dc6241">vibCon</a> = 0</td></tr>
 <tr class="separator:a6a3b34478a5869e02572ed1a25dc6241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afebb977407ac6958af48af1cecb4f965"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#afebb977407ac6958af48af1cecb4f965">hysterese</a> =false</td></tr>
+<tr class="memitem:afebb977407ac6958af48af1cecb4f965"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#afebb977407ac6958af48af1cecb4f965">hysterese</a> = false</td></tr>
 <tr class="separator:afebb977407ac6958af48af1cecb4f965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0e842a53b6692a1e808f86da5741152"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#af0e842a53b6692a1e808f86da5741152">loopCount</a> = 0</td></tr>
+<tr class="memdesc:af0e842a53b6692a1e808f86da5741152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counting variable for the controller.  <a href="pwm__const__publisher_8cpp.html#af0e842a53b6692a1e808f86da5741152">More...</a><br /></td></tr>
 <tr class="separator:af0e842a53b6692a1e808f86da5741152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1c3f317538e6db56af74841f3da0e67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#ae1c3f317538e6db56af74841f3da0e67">smoothnessFactor</a> = 5</td></tr>
+<tr class="memdesc:ae1c3f317538e6db56af74841f3da0e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only needed in mode 's'. This is the number of cycles needes per change (5 = 0.5 seconds)  <a href="pwm__const__publisher_8cpp.html#ae1c3f317538e6db56af74841f3da0e67">More...</a><br /></td></tr>
 <tr class="separator:ae1c3f317538e6db56af74841f3da0e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac57907ca9c114ba493c957a6c5755a80"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#ac57907ca9c114ba493c957a6c5755a80">vibThreshold</a> = 8</td></tr>
+<tr class="memdesc:ac57907ca9c114ba493c957a6c5755a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upper vibration threshold (value is standard deviation)  <a href="pwm__const__publisher_8cpp.html#ac57907ca9c114ba493c957a6c5755a80">More...</a><br /></td></tr>
 <tr class="separator:ac57907ca9c114ba493c957a6c5755a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e8f355b6d5cbaeba35c7810c89a006b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a9e8f355b6d5cbaeba35c7810c89a006b">vibThreshold2</a> = 5</td></tr>
 <tr class="separator:a9e8f355b6d5cbaeba35c7810c89a006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d9eeb673c1acbb5b33d058f23010d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_deviation.html">Deviation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#ab5d9eeb673c1acbb5b33d058f23010d2">s_x</a> (30)</td></tr>
+<tr class="memdesc:ab5d9eeb673c1acbb5b33d058f23010d2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the x-axis of the accelerometer.  <a href="pwm__const__publisher_8cpp.html#ab5d9eeb673c1acbb5b33d058f23010d2">More...</a><br /></td></tr>
 <tr class="separator:ab5d9eeb673c1acbb5b33d058f23010d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a102ac8aa81f9bfb96466441bb791136c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_deviation.html">Deviation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a102ac8aa81f9bfb96466441bb791136c">s_y</a> (30)</td></tr>
+<tr class="memdesc:a102ac8aa81f9bfb96466441bb791136c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the y-axis of the accelerometer.  <a href="pwm__const__publisher_8cpp.html#a102ac8aa81f9bfb96466441bb791136c">More...</a><br /></td></tr>
 <tr class="separator:a102ac8aa81f9bfb96466441bb791136c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51651048d9636471ea8fb78a0f244c71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_deviation.html">Deviation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a51651048d9636471ea8fb78a0f244c71">s_z</a> (30)</td></tr>
+<tr class="memdesc:a51651048d9636471ea8fb78a0f244c71"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the z-axis of the accelerometer.  <a href="pwm__const__publisher_8cpp.html#a51651048d9636471ea8fb78a0f244c71">More...</a><br /></td></tr>
 <tr class="separator:a51651048d9636471ea8fb78a0f244c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba71343cc7443b7649c16aa8e022f085"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#aba71343cc7443b7649c16aa8e022f085">rot_vel</a></td></tr>
+<tr class="memdesc:aba71343cc7443b7649c16aa8e022f085"><td class="mdescLeft">&#160;</td><td class="mdescRight">[UNUSED VARIABLE!] Rotation speed around x axis of the sphere (which is the forward direction)  <a href="pwm__const__publisher_8cpp.html#aba71343cc7443b7649c16aa8e022f085">More...</a><br /></td></tr>
 <tr class="separator:aba71343cc7443b7649c16aa8e022f085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0f0a20658ce86428b3b7f48de986a6"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pwm__const__publisher_8cpp.html#a4b0f0a20658ce86428b3b7f48de986a6">deviation_publisher</a></td></tr>
 <tr class="separator:a4b0f0a20658ce86428b3b7f48de986a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,7 +183,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00101">101</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>Listens to one IMU and calculates the standard <a class="el" href="class_deviation.html">Deviation</a> of the accelerometer in 3 axes <br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00134">134</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -202,7 +216,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00121">121</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00159">159</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -221,8 +235,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reads commands as described in the "mode" variable. <br  />
+ Sets the controller to specific mode. <br  />
+ Subscribes to /pwm_call (which is published by pwm_reader node) </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00045">45</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00077">77</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,8 +258,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Listens to the angular velocity around the forward direction of the sphere <br  />
+ Saves the angular velocity into "rot_vel" variable, which is currently unused. <br  />
+ In future work, this could be used to increase the vibration controller performance. </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00117">117</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00155">155</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -259,7 +279,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00009">9</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>Current value of PWM signal. </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00011">11</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,8 +296,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>(optional) <a class="el" href="class_deviation.html">Deviation</a> publisher for debugging reasons. <br  />
+ Listen to /deviation topic to see <a class="el" href="class_deviation.html">Deviation</a> values. </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00043">43</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00070">70</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -286,12 +310,15 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool hysterese =false</td>
+          <td class="memname">bool hysterese = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>True if strong vibrations occured in within the last few measurements. <br  />
+ The controller will go in hysterese-mode, which means that the rotation of the masses <br  />
+ will be slowed down until less vibration is measured. </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00023">23</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00036">36</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +334,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00026">26</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>Counting variable for the controller. </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00039">39</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -322,8 +351,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Different modes for the controller can be used. Those are: <br  />
+ d [value] = "Direct feedthrough mode" <br  />
+ s [value] = "Smooth increase / decrease to given value" <br  />
+ x [1/2/3] = "Start sequence 1, 2 or 3" <br  />
+ v [1/0] = "Switch vibrartion controller on (1)/off (0)" <br  />
+ <br  />
+ Some parameters can also be set: <br  />
+ m [value] = "Set smoothnessfactor" <br  />
+ t [value] = "Set vibration deviation threshold" <br  />
+ <br  />
+ </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00021">21</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00023">23</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -338,6 +378,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Desired value of PWM signal. </p>
 
 <p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00008">8</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
@@ -355,7 +397,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00040">40</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>[UNUSED VARIABLE!] Rotation speed around x axis of the sphere (which is the forward direction) </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00064">64</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,6 +415,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the x-axis of the accelerometer. </p>
+
 </div>
 </div>
 <a id="a102ac8aa81f9bfb96466441bb791136c"></a>
@@ -384,6 +430,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the y-axis of the accelerometer. </p>
 
 </div>
 </div>
@@ -399,6 +447,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p><a class="el" href="class_deviation.html">Deviation</a> of 30 values (sliding window) of the z-axis of the accelerometer. </p>
+
 </div>
 </div>
 <a id="ae1c3f317538e6db56af74841f3da0e67"></a>
@@ -413,7 +463,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00029">29</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>Only needed in mode 's'. This is the number of cycles needes per change (5 = 0.5 seconds) </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00042">42</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,8 +480,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>True if vibration controller is active <br  />
+ The vibration controller should reduce the vibrations induced by the rotating masses. </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00022">22</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00029">29</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -445,7 +499,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00031">31</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p>Upper vibration threshold (value is standard deviation) </p>
+
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00045">45</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>
@@ -460,8 +516,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Lower vibration threshold (value is standard deviation) <br  />
+ If the standard deviation is comes below this value while being in hysterese mode, the hysterese mode will be deactivated. </p>
 
-<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00032">32</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pwm__const__publisher_8cpp_source.html#l00052">52</a> of file <a class="el" href="pwm__const__publisher_8cpp_source.html">pwm_const_publisher.cpp</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,0 @@
-sick/ip: '192.168.0.12'
-sick/port: 2111
-sick/fov/min: 45
-sick/fov/max: 135
-sick/resolution: 0.5
-sick/rate: 500

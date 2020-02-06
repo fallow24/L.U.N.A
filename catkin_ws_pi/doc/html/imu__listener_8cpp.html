@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L.U.N.A (Host): src/imu_listener/src/imu_listener.cpp File Reference</title>
+<title>L.U.N.A (Pi): src/imu_listener/src/imu_listener.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="luna_logo_notext.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">L.U.N.A (Host)
+   <div id="projectname">L.U.N.A (Pi)
    </div>
   </td>
  </tr>
@@ -122,8 +122,10 @@ Include dependency graph for imu_listener.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a526facfbaa968647352b8504956bc391"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#a526facfbaa968647352b8504956bc391">r2d</a>(r)&#160;&#160;&#160;((r) * 180.0 / M_PI)</td></tr>
+<tr class="memdesc:a526facfbaa968647352b8504956bc391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Radians to Degrees.  <a href="imu__listener_8cpp.html#a526facfbaa968647352b8504956bc391">More...</a><br /></td></tr>
 <tr class="separator:a526facfbaa968647352b8504956bc391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab9cdff1db44dca4874551f3a285181"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#afab9cdff1db44dca4874551f3a285181">d2r</a>(d)&#160;&#160;&#160;((d) * M_PI / 180.0)</td></tr>
+<tr class="memdesc:afab9cdff1db44dca4874551f3a285181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Degrees to Radians.  <a href="imu__listener_8cpp.html#afab9cdff1db44dca4874551f3a285181">More...</a><br /></td></tr>
 <tr class="separator:afab9cdff1db44dca4874551f3a285181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -136,14 +138,14 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a6504e83fd98b256b763b26d0134bb98d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#a6504e83fd98b256b763b26d0134bb98d">wx</a></td></tr>
-<tr class="memdesc:a6504e83fd98b256b763b26d0134bb98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed around x.  <a href="imu__listener_8cpp.html#a6504e83fd98b256b763b26d0134bb98d">More...</a><br /></td></tr>
+<tr class="memdesc:a6504e83fd98b256b763b26d0134bb98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed of the virtual IMU around x.  <a href="imu__listener_8cpp.html#a6504e83fd98b256b763b26d0134bb98d">More...</a><br /></td></tr>
 <tr class="separator:a6504e83fd98b256b763b26d0134bb98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6844197bb5af5d0b08b685c1c2606d40"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#a6844197bb5af5d0b08b685c1c2606d40">wy</a></td></tr>
-<tr class="memdesc:a6844197bb5af5d0b08b685c1c2606d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed around y <br  />
+<tr class="memdesc:a6844197bb5af5d0b08b685c1c2606d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed of the virtual IMU around y <br  />
   <a href="imu__listener_8cpp.html#a6844197bb5af5d0b08b685c1c2606d40">More...</a><br /></td></tr>
 <tr class="separator:a6844197bb5af5d0b08b685c1c2606d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac24ca3a96b7dfa98ce056957fceb90fe"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#ac24ca3a96b7dfa98ce056957fceb90fe">wz</a></td></tr>
-<tr class="memdesc:ac24ca3a96b7dfa98ce056957fceb90fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed around z.  <a href="imu__listener_8cpp.html#ac24ca3a96b7dfa98ce056957fceb90fe">More...</a><br /></td></tr>
+<tr class="memdesc:ac24ca3a96b7dfa98ce056957fceb90fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation Speed of the virtual IMU around z.  <a href="imu__listener_8cpp.html#ac24ca3a96b7dfa98ce056957fceb90fe">More...</a><br /></td></tr>
 <tr class="separator:ac24ca3a96b7dfa98ce056957fceb90fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa06bf57a24fa9d6c8895d2769fd582"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imu__listener_8cpp.html#a9aa06bf57a24fa9d6c8895d2769fd582">quietmode</a> = false</td></tr>
 <tr class="memdesc:a9aa06bf57a24fa9d6c8895d2769fd582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set this to true to supress ROS_INFO output.  <a href="imu__listener_8cpp.html#a9aa06bf57a24fa9d6c8895d2769fd582">More...</a><br /></td></tr>
@@ -171,7 +173,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00015">15</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p>Converts Degrees to Radians. </p>
+
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00018">18</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -191,7 +195,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00014">14</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p>Converts Radians to Degrees. </p>
+
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00015">15</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -211,9 +217,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function that gets called whenever new IMU Data is received. IMU 1: Side IMU. Gathers x component of rotation speed. IMU 2: Bottom IMU. Gathers z component of rotation speed. IMU 3: Front IMU. Gathers y component of rotation speed. </p>
+<p>Function that gets called whenever new IMU Data is received.<br  />
+IMU 1: Side IMU. Gathers x component of rotation speed.<br  />
+IMU 2: Bottom IMU. Gathers z component of rotation speed.<br  />
+IMU 3: Front IMU. Gathers y component of rotation speed.<br  />
+The callback function combines the z components of the single IMUs to combine them into one virtual IMU that is placed in the middle of the sphere. </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00069">69</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00074">74</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +253,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00041">41</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00046">46</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +270,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00039">39</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00044">44</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -278,7 +288,7 @@ Variables</h2></td></tr>
 
 <p>Orientation of bottom IMU which is used to represent orientation of the vehicle. </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00067">67</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00072">72</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -296,7 +306,7 @@ Variables</h2></td></tr>
 
 <p>Set this to true to supress ROS_INFO output. </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00037">37</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00042">42</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -312,9 +322,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Rotation Speed around x. </p>
+<p>Rotation Speed of the virtual IMU around x. </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00030">30</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00035">35</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -330,10 +340,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Rotation Speed around y <br  />
+<p>Rotation Speed of the virtual IMU around y <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00032">32</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00037">37</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>
@@ -349,9 +359,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Rotation Speed around z. </p>
+<p>Rotation Speed of the virtual IMU around z. </p>
 
-<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00034">34</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="imu__listener_8cpp_source.html#l00039">39</a> of file <a class="el" href="imu__listener_8cpp_source.html">imu_listener.cpp</a>.</p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L.U.N.A (Host): src/pwm_commander/src/threshold.hpp Source File</title>
+<title>L.U.N.A (Pi): src/pwm_commander/src/threshold.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="luna_logo_notext.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">L.U.N.A (Host)
+   <div id="projectname">L.U.N.A (Pi)
    </div>
   </td>
  </tr>
@@ -86,27 +86,28 @@ $(document).ready(function(){initNavTree('threshold_8hpp_source.html',''); initR
 <div class="title">threshold.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="threshold_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef THRESHOLD_HPP</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define THRESHOLD_HPP</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;ros/ros.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;sensor_msgs/Imu.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<a href="threshold_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef THRESHOLD_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define THRESHOLD_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ros/ros.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;sensor_msgs/Imu.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="threshold_8hpp.html#ae8e67ef4a5be2003777d6a4964b6d330">   10</a></span>&#160;<span class="preprocessor">#define SQR(n) ((n)*(n))</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_deviation.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_deviation.html">Deviation</a> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="threshold_8hpp.html#ae8e67ef4a5be2003777d6a4964b6d330">   20</a></span>&#160;<span class="preprocessor">#define SQR(n) ((n)*(n))</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> buffer_size;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_deviation.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_deviation.html">Deviation</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> buffer_size;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    deque&lt;double&gt; buffer;       </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">double</span> value;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> m; <span class="comment">//mean</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    deque&lt;double&gt; buffer;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> value;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> m;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> add(<span class="keywordtype">double</span> elem) {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        buffer.push_back(elem);</div>
@@ -136,24 +137,24 @@ $(document).ready(function(){initNavTree('threshold_8hpp_source.html',''); initR
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">public</span>: </div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_deviation.html#a4a9bbaf90363a3423d4a6dca976165a9">   60</a></span>&#160;    <a class="code" href="class_deviation.html#a4a9bbaf90363a3423d4a6dca976165a9">Deviation</a>(<span class="keywordtype">int</span> n) : buffer_size(n) {}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">   62</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">get</a>() { <span class="keywordflow">return</span> value; }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_deviation.html#a590ecbea3d1de53605486fc201121973">   64</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_deviation.html#a590ecbea3d1de53605486fc201121973">put</a>(<span class="keywordtype">double</span> elem) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        add(elem);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">   63</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">get</a>() { <span class="keywordflow">return</span> value; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_deviation.html#a590ecbea3d1de53605486fc201121973">   66</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_deviation.html#a590ecbea3d1de53605486fc201121973">put</a>(<span class="keywordtype">double</span> elem) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        add(elem);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_deviation_html_a590ecbea3d1de53605486fc201121973"><div class="ttname"><a href="class_deviation.html#a590ecbea3d1de53605486fc201121973">Deviation::put</a></div><div class="ttdeci">double put(double elem)</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00064">threshold.hpp:64</a></div></div>
+<div class="ttc" id="aclass_deviation_html_a590ecbea3d1de53605486fc201121973"><div class="ttname"><a href="class_deviation.html#a590ecbea3d1de53605486fc201121973">Deviation::put</a></div><div class="ttdeci">double put(double elem)</div><div class="ttdoc">Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full)</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00066">threshold.hpp:66</a></div></div>
 <div class="ttc" id="aclass_deviation_html_a4a9bbaf90363a3423d4a6dca976165a9"><div class="ttname"><a href="class_deviation.html#a4a9bbaf90363a3423d4a6dca976165a9">Deviation::Deviation</a></div><div class="ttdeci">Deviation(int n)</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00060">threshold.hpp:60</a></div></div>
-<div class="ttc" id="aclass_deviation_html"><div class="ttname"><a href="class_deviation.html">Deviation</a></div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00024">threshold.hpp:24</a></div></div>
-<div class="ttc" id="aclass_deviation_html_a32ad755edb5cb2fc4ffae1dd273ed008"><div class="ttname"><a href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">Deviation::get</a></div><div class="ttdeci">double get()</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00062">threshold.hpp:62</a></div></div>
-<div class="ttc" id="athreshold_8hpp_html_ae8e67ef4a5be2003777d6a4964b6d330"><div class="ttname"><a href="threshold_8hpp.html#ae8e67ef4a5be2003777d6a4964b6d330">SQR</a></div><div class="ttdeci">#define SQR(n)</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00020">threshold.hpp:20</a></div></div>
+<div class="ttc" id="aclass_deviation_html"><div class="ttname"><a href="class_deviation.html">Deviation</a></div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00018">threshold.hpp:18</a></div></div>
+<div class="ttc" id="aclass_deviation_html_a32ad755edb5cb2fc4ffae1dd273ed008"><div class="ttname"><a href="class_deviation.html#a32ad755edb5cb2fc4ffae1dd273ed008">Deviation::get</a></div><div class="ttdeci">double get()</div><div class="ttdoc">Returns the current deviation value.</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00063">threshold.hpp:63</a></div></div>
+<div class="ttc" id="athreshold_8hpp_html_ae8e67ef4a5be2003777d6a4964b6d330"><div class="ttname"><a href="threshold_8hpp.html#ae8e67ef4a5be2003777d6a4964b6d330">SQR</a></div><div class="ttdeci">#define SQR(n)</div><div class="ttdoc">Calculate n^2.</div><div class="ttdef"><b>Definition:</b> <a href="threshold_8hpp_source.html#l00010">threshold.hpp:10</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

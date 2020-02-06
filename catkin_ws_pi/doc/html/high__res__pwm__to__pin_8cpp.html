@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>L.U.N.A (Host): src/pwm_commander/src/high_res_pwm_to_pin.cpp File Reference</title>
+<title>L.U.N.A (Pi): src/pwm_commander/src/high_res_pwm_to_pin.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="luna_logo_notext.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">L.U.N.A (Host)
+   <div id="projectname">L.U.N.A (Pi)
    </div>
   </td>
  </tr>
@@ -117,16 +117,20 @@ Include dependency graph for high_res_pwm_to_pin.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aadb7db6e63cae9149368e5a4688dfebf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#aadb7db6e63cae9149368e5a4688dfebf">start_procedure</a> (int pin_1, int pin_2)</td></tr>
+<tr class="memdesc:aadb7db6e63cae9149368e5a4688dfebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start procedure.  <a href="high__res__pwm__to__pin_8cpp.html#aadb7db6e63cae9149368e5a4688dfebf">More...</a><br /></td></tr>
 <tr class="separator:aadb7db6e63cae9149368e5a4688dfebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a228b9d8c0084f329bf332030c222a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a6a228b9d8c0084f329bf332030c222a1">init_esc</a> (int pin)</td></tr>
+<tr class="memdesc:a6a228b9d8c0084f329bf332030c222a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arms the ESC.  <a href="high__res__pwm__to__pin_8cpp.html#a6a228b9d8c0084f329bf332030c222a1">More...</a><br /></td></tr>
 <tr class="separator:a6a228b9d8c0084f329bf332030c222a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700d1497633d66724487faf3cdcd12b6"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a700d1497633d66724487faf3cdcd12b6">throttle2pwmValues</a> (int <a class="el" href="high__res__pwm__to__pin_8cpp.html#a2f20e9cb706f9e6756f8be02d2eaffff">throttle</a>)</td></tr>
 <tr class="separator:a700d1497633d66724487faf3cdcd12b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee6d107ea9e730ba3795e2729830396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a5ee6d107ea9e730ba3795e2729830396">transfer_pwm</a> (int pin_1, int pin_2, int curr_pwm_value, int new_pwm_value)</td></tr>
 <tr class="separator:a5ee6d107ea9e730ba3795e2729830396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3da56d81cc95e03ca51f67f8bd6e367b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a3da56d81cc95e03ca51f67f8bd6e367b">pwmValCallback</a> (const std_msgs::String::ConstPtr &amp;msg)</td></tr>
+<tr class="memdesc:a3da56d81cc95e03ca51f67f8bd6e367b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when pwm data from the const pub is available.  <a href="high__res__pwm__to__pin_8cpp.html#a3da56d81cc95e03ca51f67f8bd6e367b">More...</a><br /></td></tr>
 <tr class="separator:a3da56d81cc95e03ca51f67f8bd6e367b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab27944b272812e68bac3c63e2d2e173"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#aab27944b272812e68bac3c63e2d2e173">imuDataCallback</a> (const sensor_msgs::Imu msg)</td></tr>
+<tr class="memdesc:aab27944b272812e68bac3c63e2d2e173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listens to angular velocity of virutal IMU.  <a href="high__res__pwm__to__pin_8cpp.html#aab27944b272812e68bac3c63e2d2e173">More...</a><br /></td></tr>
 <tr class="separator:aab27944b272812e68bac3c63e2d2e173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,8 +146,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a572f9e83e6d1b7c333c52899274b23a5"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a572f9e83e6d1b7c333c52899274b23a5">MAX_ROT_SPEED</a> = 3.5</td></tr>
 <tr class="separator:a572f9e83e6d1b7c333c52899274b23a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53aa4b476f4bfc53d83b895776399a7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a53aa4b476f4bfc53d83b895776399a7f">curr_pwm_values</a> [2] = {100,100}</td></tr>
+<tr class="memdesc:a53aa4b476f4bfc53d83b895776399a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current pwm values required for diff calculation.  <a href="high__res__pwm__to__pin_8cpp.html#a53aa4b476f4bfc53d83b895776399a7f">More...</a><br /></td></tr>
 <tr class="separator:a53aa4b476f4bfc53d83b895776399a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5ed66899cb811ce3bfb0b35306c1d89"><td class="memItemLeft" align="right" valign="top">geometry_msgs::Vector3 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#ab5ed66899cb811ce3bfb0b35306c1d89">curr_ang_vel</a> = new geometry_msgs::Vector3()</td></tr>
+<tr class="memdesc:ab5ed66899cb811ce3bfb0b35306c1d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current angular velocity (3D)  <a href="high__res__pwm__to__pin_8cpp.html#ab5ed66899cb811ce3bfb0b35306c1d89">More...</a><br /></td></tr>
 <tr class="separator:ab5ed66899cb811ce3bfb0b35306c1d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e2eaf5e2420dbc0815c75f33716fec"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="high__res__pwm__to__pin_8cpp.html#a33e2eaf5e2420dbc0815c75f33716fec">PIN1</a> = 18</td></tr>
 <tr class="separator:a33e2eaf5e2420dbc0815c75f33716fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,7 +173,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00053">53</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p>Listens to angular velocity of virutal IMU. </p>
+
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00064">64</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -187,7 +195,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00096">96</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p>Arms the ESC. </p>
+
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00108">108</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -217,7 +227,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00060">60</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00072">72</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,7 +247,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00041">41</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p>Called when pwm data from the const pub is available. </p>
+
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00051">51</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,6 +279,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Start procedure. </p>
+
 </div>
 </div>
 <a id="a700d1497633d66724487faf3cdcd12b6"></a>
@@ -284,8 +298,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Computes the pwm values for both motors <br  />
+ given a vehicle throttle precentage. </p>
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00105">105</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00117">117</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,8 +342,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Transfers the pwm value smoothly for each 1% of throttle it takes 0.5s </p>
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00117">117</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00129">129</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +361,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00018">18</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p>Current angular velocity (3D) </p>
+
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00023">23</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -360,7 +379,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00017">17</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p>Current pwm values required for diff calculation. </p>
+
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00020">20</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +397,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00015">15</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00017">17</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -392,7 +413,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00020">20</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00026">26</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -408,7 +429,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00021">21</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00027">27</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -424,7 +445,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00014">14</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00016">16</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -440,7 +461,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00013">13</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00015">15</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>
@@ -455,8 +476,12 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>How fast should we go (motor throttle)? <br  />
+ Positive = forwards <br  />
+ Negative = backwards <br  />
+ </p>
 
-<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00012">12</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="high__res__pwm__to__pin_8cpp_source.html#l00013">13</a> of file <a class="el" href="high__res__pwm__to__pin_8cpp_source.html">high_res_pwm_to_pin.cpp</a>.</p>
 
 </div>
 </div>

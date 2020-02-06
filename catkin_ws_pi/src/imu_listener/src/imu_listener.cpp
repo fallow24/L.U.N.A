@@ -11,7 +11,10 @@
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>
 
+//! Converts Radians to Degrees
 #define r2d(r) ((r) * 180.0 / M_PI)
+
+//! Converts Degrees to Radians
 #define d2r(d) ((d) * M_PI / 180.0)
 
 using std::ofstream;
@@ -19,18 +22,20 @@ using std::cout;
 using std::endl;
 
 /*!
- * Function that gets called whenever new IMU Data is received.
- * IMU 1: Side IMU. Gathers x component of rotation speed.
- * IMU 2: Bottom IMU. Gathers z component of rotation speed.
- * IMU 3: Front IMU. Gathers y component of rotation speed.
+ * Function that gets called whenever new IMU Data is received.\n
+ * IMU 1: Side IMU. Gathers x component of rotation speed.\n
+ * IMU 2: Bottom IMU. Gathers z component of rotation speed.\n
+ * IMU 3: Front IMU. Gathers y component of rotation speed.\n
+ * The callback function combines the z components of the single IMUs to combine them into one virtual IMU
+ * that is placed in the middle of the sphere.
  */
 void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg);
 
-//! Rotation Speed around x 
+//! Rotation Speed of the virtual IMU around x 
 double wx; 
-//! Rotation Speed around y  
+//! Rotation Speed of the virtual IMU around y  
 double wy; 
-//! Rotation Speed around z 
+//! Rotation Speed of the virtual IMU around z 
 double wz; 
 
 //! Set this to true to supress ROS_INFO output
@@ -73,7 +78,7 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
         // IMU 1: SIDE IMU
 	if(strcmp(msg->header.frame_id.c_str(), "imu1") == 0) 
 	{
-	        wx = msg->angular_velocity.z;
+	        wx = -1 * msg->angular_velocity.z;
 	}
 	// IMU 2: BOTTOM IMU
 	else if(strcmp(msg->header.frame_id.c_str(), "imu2") == 0)
@@ -85,7 +90,6 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
 	else if(strcmp(msg->header.frame_id.c_str(), "imu3") == 0)
 	{
   		wy = msg->angular_velocity.z;
-		//q_front = tf::Quaternion(msg->orientation.x, msg->orientation.y, msg->orientation.z, msg->orientation.w);
 	}
 
 	if(!quietmode) ROS_INFO("Combined Velocity  x: [%f], y: [%f], z: [%f]", wx, wy, wz);

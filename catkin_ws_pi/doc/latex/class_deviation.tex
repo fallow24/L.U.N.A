@@ -10,15 +10,15 @@
 \mbox{\hyperlink{class_deviation_a4a9bbaf90363a3423d4a6dca976165a9}{Deviation}} (int n)
 \item 
 double \mbox{\hyperlink{class_deviation_a32ad755edb5cb2fc4ffae1dd273ed008}{get}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the current deviation value. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_deviation_a590ecbea3d1de53605486fc201121973}{put}} (double elem)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Class that buffers up to n values and calculates the standard deviation of those. The buffer works as a sliding window. 
 
-
-Definition at line 24 of file threshold.\+hpp.
+Definition at line 18 of file threshold.\+hpp.
 
 
 
@@ -44,7 +44,11 @@ Definition at line 60 of file threshold.\+hpp.
 
 
 
-Definition at line 62 of file threshold.\+hpp.
+Returns the current deviation value. 
+
+
+
+Definition at line 63 of file threshold.\+hpp.
 
 \mbox{\Hypertarget{class_deviation_a590ecbea3d1de53605486fc201121973}\label{class_deviation_a590ecbea3d1de53605486fc201121973}} 
 \index{Deviation@{Deviation}!put@{put}}
@@ -54,7 +58,11 @@ Definition at line 62 of file threshold.\+hpp.
 
 
 
-Definition at line 64 of file threshold.\+hpp.
+Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full) 
+
+
+
+Definition at line 66 of file threshold.\+hpp.
 
 
 
