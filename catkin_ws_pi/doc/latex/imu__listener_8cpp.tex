@@ -1,0 +1,191 @@
+\hypertarget{imu__listener_8cpp}{}\doxysection{src/imu\+\_\+listener/src/imu\+\_\+listener.cpp File Reference}
+\label{imu__listener_8cpp}\index{src/imu\_listener/src/imu\_listener.cpp@{src/imu\_listener/src/imu\_listener.cpp}}
+{\ttfamily \#include \char`\"{}tf/transform\+\_\+listener.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Imu.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$tf/transform\+\_\+broadcaster.\+h$>$}\newline
+Include dependency graph for imu\+\_\+listener.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{imu__listener_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imu__listener_8cpp_a526facfbaa968647352b8504956bc391}{r2d}}(r)~((r) $\ast$ 180.\+0 / M\+\_\+\+PI)
+\begin{DoxyCompactList}\small\item\em Converts Radians to Degrees. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{imu__listener_8cpp_afab9cdff1db44dca4874551f3a285181}{d2r}}(d)~((d) $\ast$ M\+\_\+\+PI / 180.\+0)
+\begin{DoxyCompactList}\small\item\em Converts Degrees to Radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{imu__listener_8cpp_a4b90ee943ead04b66ed325ad98332352}{chatter\+Callback}} (const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&msg)
+\item 
+int \mbox{\hyperlink{imu__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{imu__listener_8cpp_a6504e83fd98b256b763b26d0134bb98d}{wx}}
+\begin{DoxyCompactList}\small\item\em Rotation Speed of the virtual I\+MU around x. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{imu__listener_8cpp_a6844197bb5af5d0b08b685c1c2606d40}{wy}}
+\begin{DoxyCompactList}\small\item\em Rotation Speed of the virtual I\+MU around y ~\newline
+ \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{imu__listener_8cpp_ac24ca3a96b7dfa98ce056957fceb90fe}{wz}}
+\begin{DoxyCompactList}\small\item\em Rotation Speed of the virtual I\+MU around z. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{imu__listener_8cpp_a9aa06bf57a24fa9d6c8895d2769fd582}{quietmode}} = false
+\begin{DoxyCompactList}\small\item\em Set this to true to supress R\+O\+S\+\_\+\+I\+N\+FO output. \end{DoxyCompactList}\item 
+ros\+::\+Publisher \mbox{\hyperlink{imu__listener_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}}
+\item 
+tf\+::\+Quaternion \mbox{\hyperlink{imu__listener_8cpp_a31f331a6bd4d1a79b86fe7d2872948ac}{q\+\_\+bottom}}
+\begin{DoxyCompactList}\small\item\em Orientation of bottom I\+MU which is used to represent orientation of the vehicle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imu__listener_8cpp_afab9cdff1db44dca4874551f3a285181}\label{imu__listener_8cpp_afab9cdff1db44dca4874551f3a285181}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!d2r@{d2r}}
+\index{d2r@{d2r}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{d2r}{d2r}}
+{\footnotesize\ttfamily \#define d2r(\begin{DoxyParamCaption}\item[{}]{d }\end{DoxyParamCaption})~((d) $\ast$ M\+\_\+\+PI / 180.\+0)}
+
+
+
+Converts Degrees to Radians. 
+
+
+
+Definition at line 18 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a526facfbaa968647352b8504956bc391}\label{imu__listener_8cpp_a526facfbaa968647352b8504956bc391}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!r2d@{r2d}}
+\index{r2d@{r2d}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{r2d}{r2d}}
+{\footnotesize\ttfamily \#define r2d(\begin{DoxyParamCaption}\item[{}]{r }\end{DoxyParamCaption})~((r) $\ast$ 180.\+0 / M\+\_\+\+PI)}
+
+
+
+Converts Radians to Degrees. 
+
+
+
+Definition at line 15 of file imu\+\_\+listener.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{imu__listener_8cpp_a4b90ee943ead04b66ed325ad98332352}\label{imu__listener_8cpp_a4b90ee943ead04b66ed325ad98332352}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!chatterCallback@{chatterCallback}}
+\index{chatterCallback@{chatterCallback}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{chatterCallback()}{chatterCallback()}}
+{\footnotesize\ttfamily void chatter\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Imu\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+Function that gets called whenever new I\+MU Data is received.~\newline
+I\+MU 1\+: Side I\+MU. Gathers x component of rotation speed.~\newline
+I\+MU 2\+: Bottom I\+MU. Gathers z component of rotation speed.~\newline
+I\+MU 3\+: Front I\+MU. Gathers y component of rotation speed.~\newline
+The callback function combines the z components of the single I\+M\+Us to combine them into one virtual I\+MU that is placed in the middle of the sphere. 
+
+Definition at line 74 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{imu__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!main@{main}}
+\index{main@{main}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file imu\+\_\+listener.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{imu__listener_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{imu__listener_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!pub@{pub}}
+\index{pub@{pub}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{pub}{pub}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub}
+
+
+
+Definition at line 44 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a31f331a6bd4d1a79b86fe7d2872948ac}\label{imu__listener_8cpp_a31f331a6bd4d1a79b86fe7d2872948ac}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!q\_bottom@{q\_bottom}}
+\index{q\_bottom@{q\_bottom}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{q\_bottom}{q\_bottom}}
+{\footnotesize\ttfamily tf\+::\+Quaternion q\+\_\+bottom}
+
+
+
+Orientation of bottom I\+MU which is used to represent orientation of the vehicle. 
+
+
+
+Definition at line 72 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a9aa06bf57a24fa9d6c8895d2769fd582}\label{imu__listener_8cpp_a9aa06bf57a24fa9d6c8895d2769fd582}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!quietmode@{quietmode}}
+\index{quietmode@{quietmode}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{quietmode}{quietmode}}
+{\footnotesize\ttfamily bool quietmode = false}
+
+
+
+Set this to true to supress R\+O\+S\+\_\+\+I\+N\+FO output. 
+
+
+
+Definition at line 42 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a6504e83fd98b256b763b26d0134bb98d}\label{imu__listener_8cpp_a6504e83fd98b256b763b26d0134bb98d}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!wx@{wx}}
+\index{wx@{wx}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{wx}{wx}}
+{\footnotesize\ttfamily double wx}
+
+
+
+Rotation Speed of the virtual I\+MU around x. 
+
+
+
+Definition at line 35 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_a6844197bb5af5d0b08b685c1c2606d40}\label{imu__listener_8cpp_a6844197bb5af5d0b08b685c1c2606d40}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!wy@{wy}}
+\index{wy@{wy}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{wy}{wy}}
+{\footnotesize\ttfamily double wy}
+
+
+
+Rotation Speed of the virtual I\+MU around y ~\newline
+ 
+
+
+
+Definition at line 37 of file imu\+\_\+listener.\+cpp.
+
+\mbox{\Hypertarget{imu__listener_8cpp_ac24ca3a96b7dfa98ce056957fceb90fe}\label{imu__listener_8cpp_ac24ca3a96b7dfa98ce056957fceb90fe}} 
+\index{imu\_listener.cpp@{imu\_listener.cpp}!wz@{wz}}
+\index{wz@{wz}!imu\_listener.cpp@{imu\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{wz}{wz}}
+{\footnotesize\ttfamily double wz}
+
+
+
+Rotation Speed of the virtual I\+MU around z. 
+
+
+
+Definition at line 39 of file imu\+\_\+listener.\+cpp.
+

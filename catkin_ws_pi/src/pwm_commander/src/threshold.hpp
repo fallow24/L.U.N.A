@@ -1,14 +1,3 @@
-/**
-  * Example use:
-  *
-1 * Deviation deviation(5); //buffers up to 5 values
-2 * deviation.put(2.312);
-3 * deviation.put(M_PI);
-4 * deviation.put(0);
-5 * double s = deviation.get(); 
-  *
-  */
-
 #ifndef THRESHOLD_HPP
 #define THRESHOLD_HPP
 
@@ -17,18 +6,29 @@
 #include <deque>
 #include <math.h>
 
+//! Calculate n^2
 #define SQR(n) ((n)*(n))
 
 using namespace std;
 
+/*! 
+ * Class that buffers up to n values and calculates the 
+ * standard deviation of those. The buffer works as a sliding window.
+ */ 
 class Deviation {
 
 private:
+        //! Size of the sliding window.
 	int buffer_size;
-	deque<double> buffer;		
+
+	//! The sliding window implemented as a double ended queue
+	deque<double> buffer;
+
+	//! Current deviation of the buffer		
 	double value;
 
-	double m; //mean
+	//! Current mean of the buffer
+	double m;
 
 	void add(double elem) {
 		buffer.push_back(elem);
@@ -58,9 +58,11 @@ private:
 
 public: 
 	Deviation(int n) : buffer_size(n) {}
-
+	
+	//! Returns the current deviation value
 	double get() { return value; }
 
+	//! Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full)
 	double put(double elem) {
 		add(elem);
 		return value;

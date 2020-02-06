@@ -1,0 +1,61 @@
+\hypertarget{pwm__reader_8cpp}{}\doxysection{src/pwm\+\_\+commander/src/pwm\+\_\+reader.cpp File Reference}
+\label{pwm__reader_8cpp}\index{src/pwm\_commander/src/pwm\_reader.cpp@{src/pwm\_commander/src/pwm\_reader.cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for pwm\+\_\+reader.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pwm__reader_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{pwm__reader_8cpp_a53d02df1713071578c4b6a030269739b}{is\+\_\+number}} (const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em Checks if a string is a number. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{pwm__reader_8cpp_a92be248d6a53b1831a42ac18e13eb105}{read\+\_\+input}} ()
+\begin{DoxyCompactList}\small\item\em Reads input from commandline. If input is nan it return -\/100. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{pwm__reader_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pwm__reader_8cpp_a53d02df1713071578c4b6a030269739b}\label{pwm__reader_8cpp_a53d02df1713071578c4b6a030269739b}} 
+\index{pwm\_reader.cpp@{pwm\_reader.cpp}!is\_number@{is\_number}}
+\index{is\_number@{is\_number}!pwm\_reader.cpp@{pwm\_reader.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Checks if a string is a number. 
+
+\mbox{\Hypertarget{pwm__reader_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{pwm__reader_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{pwm\_reader.cpp@{pwm\_reader.cpp}!main@{main}}
+\index{main@{main}!pwm\_reader.cpp@{pwm\_reader.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file pwm\+\_\+reader.\+cpp.
+
+\mbox{\Hypertarget{pwm__reader_8cpp_a92be248d6a53b1831a42ac18e13eb105}\label{pwm__reader_8cpp_a92be248d6a53b1831a42ac18e13eb105}} 
+\index{pwm\_reader.cpp@{pwm\_reader.cpp}!read\_input@{read\_input}}
+\index{read\_input@{read\_input}!pwm\_reader.cpp@{pwm\_reader.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_input()}{read\_input()}}
+{\footnotesize\ttfamily std\+::string read\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads input from commandline. If input is nan it return -\/100. 
+
+
+
+Definition at line 64 of file pwm\+\_\+reader.\+cpp.
+

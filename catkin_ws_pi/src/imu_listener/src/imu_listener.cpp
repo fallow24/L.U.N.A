@@ -11,21 +11,35 @@
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>
 
+//! Converts Radians to Degrees
 #define r2d(r) ((r) * 180.0 / M_PI)
+
+//! Converts Degrees to Radians
 #define d2r(d) ((d) * M_PI / 180.0)
 
 using std::ofstream;
 using std::cout;
 using std::endl;
 
+/*!
+ * Function that gets called whenever new IMU Data is received.\n
+ * IMU 1: Side IMU. Gathers x component of rotation speed.\n
+ * IMU 2: Bottom IMU. Gathers z component of rotation speed.\n
+ * IMU 3: Front IMU. Gathers y component of rotation speed.\n
+ * The callback function combines the z components of the single IMUs to combine them into one virtual IMU
+ * that is placed in the middle of the sphere.
+ */
 void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg);
 
-// rotation speeds
-double wx;
-double wy;
-double wz;
+//! Rotation Speed of the virtual IMU around x 
+double wx; 
+//! Rotation Speed of the virtual IMU around y  
+double wy; 
+//! Rotation Speed of the virtual IMU around z 
+double wz; 
 
-bool quietmode = false;
+//! Set this to true to supress ROS_INFO output
+bool quietmode = false; 
 
 ros::Publisher pub;
 
@@ -54,7 +68,8 @@ int main(int argc, char **argv) {
         return 0;
 }
 
-tf::Quaternion q_bottom;
+//! Orientation of bottom IMU which is used to represent orientation of the vehicle
+tf::Quaternion q_bottom; 
 
 void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
 {
@@ -63,7 +78,7 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
         // IMU 1: SIDE IMU
 	if(strcmp(msg->header.frame_id.c_str(), "imu1") == 0) 
 	{
-	        wx = msg->angular_velocity.z;
+	        wx = -1 * msg->angular_velocity.z;
 	}
 	// IMU 2: BOTTOM IMU
 	else if(strcmp(msg->header.frame_id.c_str(), "imu2") == 0)
@@ -75,7 +90,6 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
 	else if(strcmp(msg->header.frame_id.c_str(), "imu3") == 0)
 	{
   		wy = msg->angular_velocity.z;
-		//q_front = tf::Quaternion(msg->orientation.x, msg->orientation.y, msg->orientation.z, msg->orientation.w);
 	}
 
 	if(!quietmode) ROS_INFO("Combined Velocity  x: [%f], y: [%f], z: [%f]", wx, wy, wz);

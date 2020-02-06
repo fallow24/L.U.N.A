@@ -16,6 +16,10 @@ tf::TransformListener *listener;
 bool ignored_points[1080]={false};
 bool initialized = false;
 
+/*!
+ * Get the transformation matrices and vectors <br>
+ * needed for the pose combination of the IMU and the Laserscanner.
+ */ 
 void getTransform(tf::StampedTransform &transform, double *t, double *ti, double *rP, double *rPT) {
 
     double mat[9];
@@ -56,7 +60,13 @@ void getTransform(tf::StampedTransform &transform, double *t, double *ti, double
     Matrix4ToEuler(t, rPT, rP);
 }
 
-
+/*!
+ * Gets called when new Laserscan data is ready. <br> 
+ * Looks up the transform between the /world frame and the /front_laser frame.
+ * (This transform can be found in the .launch file of the LMS) <br> 
+ * Transforms the laserscan data into the /world frame, <br>
+ * then saves the pose and the 3D data into scanfiles. 
+ */ 
 void LMSCallback(const sensor_msgs::LaserScan& msg){
 
   //Get transformation from odom to lms
@@ -140,11 +150,21 @@ void LMSCallback(const sensor_msgs::LaserScan& msg){
 
 }
 
+//! Radius of the sphere in cm
 const double radius = 0.125;
 double last_time = 0;
+
+//! Rotation speed of the sphere 
 tf::Vector3 velocity(0, 0, 0);
+
+//! Position of the sphere
 tf::Vector3 position(0, 0, 0);
 
+/*! 
+ * Gets called when new IMU data is ready. <br> 
+ * Reads the orientation of the IMU and transform it into the /world frame. <br> 
+ * Calculates the POSE and publishes the transformation between the /imu_base and the /world frame.
+ */
 void IMUCallback(const sensor_msgs::Imu::ConstPtr& msg){
 
 

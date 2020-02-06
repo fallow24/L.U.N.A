@@ -1,0 +1,233 @@
+\hypertarget{high__res__pwm__to__pin_8cpp}{}\doxysection{src/pwm\+\_\+commander/src/high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.cpp File Reference}
+\label{high__res__pwm__to__pin_8cpp}\index{src/pwm\_commander/src/high\_res\_pwm\_to\_pin.cpp@{src/pwm\_commander/src/high\_res\_pwm\_to\_pin.cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Imu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Vector3.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$pigpio.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{high__res__pwm__to__pin_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_aadb7db6e63cae9149368e5a4688dfebf}{start\+\_\+procedure}} (int pin\+\_\+1, int pin\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Start procedure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a6a228b9d8c0084f329bf332030c222a1}{init\+\_\+esc}} (int pin)
+\begin{DoxyCompactList}\small\item\em Arms the E\+SC. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a700d1497633d66724487faf3cdcd12b6}{throttle2pwm\+Values}} (int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a2f20e9cb706f9e6756f8be02d2eaffff}{throttle}})
+\item 
+void \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a5ee6d107ea9e730ba3795e2729830396}{transfer\+\_\+pwm}} (int pin\+\_\+1, int pin\+\_\+2, int curr\+\_\+pwm\+\_\+value, int new\+\_\+pwm\+\_\+value)
+\item 
+void \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a3da56d81cc95e03ca51f67f8bd6e367b}{pwm\+Val\+Callback}} (const std\+\_\+msgs\+::\+String\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em Called when pwm data from the const pub is available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_aab27944b272812e68bac3c63e2d2e173}{imu\+Data\+Callback}} (const sensor\+\_\+msgs\+::\+Imu msg)
+\begin{DoxyCompactList}\small\item\em Listens to angular velocity of virutal I\+MU. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a2f20e9cb706f9e6756f8be02d2eaffff}{throttle}} = 0
+\item 
+const int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a231eaa450abe8f8d21355f49d12b37b5}{P\+W\+M\+\_\+\+R\+A\+N\+GE}} = 2000
+\item 
+const int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a00334088fe90b08b7abb864bb0c8b092}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}} = 50
+\item 
+const double \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a572f9e83e6d1b7c333c52899274b23a5}{M\+A\+X\+\_\+\+R\+O\+T\+\_\+\+S\+P\+E\+ED}} = 3.\+5
+\item 
+int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a53aa4b476f4bfc53d83b895776399a7f}{curr\+\_\+pwm\+\_\+values}} \mbox{[}2\mbox{]} = \{100,100\}
+\begin{DoxyCompactList}\small\item\em Current pwm values required for diff calculation. \end{DoxyCompactList}\item 
+geometry\+\_\+msgs\+::\+Vector3 $\ast$ \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_ab5ed66899cb811ce3bfb0b35306c1d89}{curr\+\_\+ang\+\_\+vel}} = new geometry\+\_\+msgs\+::\+Vector3()
+\begin{DoxyCompactList}\small\item\em Current angular velocity (3D) \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a33e2eaf5e2420dbc0815c75f33716fec}{P\+I\+N1}} = 18
+\item 
+const int \mbox{\hyperlink{high__res__pwm__to__pin_8cpp_a635d2d79a5d7449948bfcfef4e9ebdee}{P\+I\+N2}} = 23
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_aab27944b272812e68bac3c63e2d2e173}\label{high__res__pwm__to__pin_8cpp_aab27944b272812e68bac3c63e2d2e173}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!imuDataCallback@{imuDataCallback}}
+\index{imuDataCallback@{imuDataCallback}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{imuDataCallback()}{imuDataCallback()}}
+{\footnotesize\ttfamily void imu\+Data\+Callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Imu}]{msg }\end{DoxyParamCaption})}
+
+
+
+Listens to angular velocity of virutal I\+MU. 
+
+
+
+Definition at line 64 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a6a228b9d8c0084f329bf332030c222a1}\label{high__res__pwm__to__pin_8cpp_a6a228b9d8c0084f329bf332030c222a1}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!init\_esc@{init\_esc}}
+\index{init\_esc@{init\_esc}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{init\_esc()}{init\_esc()}}
+{\footnotesize\ttfamily void init\+\_\+esc (\begin{DoxyParamCaption}\item[{int}]{pin }\end{DoxyParamCaption})}
+
+
+
+Arms the E\+SC. 
+
+
+
+Definition at line 108 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{high__res__pwm__to__pin_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!main@{main}}
+\index{main@{main}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a3da56d81cc95e03ca51f67f8bd6e367b}\label{high__res__pwm__to__pin_8cpp_a3da56d81cc95e03ca51f67f8bd6e367b}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!pwmValCallback@{pwmValCallback}}
+\index{pwmValCallback@{pwmValCallback}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{pwmValCallback()}{pwmValCallback()}}
+{\footnotesize\ttfamily void pwm\+Val\+Callback (\begin{DoxyParamCaption}\item[{const std\+\_\+msgs\+::\+String\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Called when pwm data from the const pub is available. 
+
+
+
+Definition at line 51 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_aadb7db6e63cae9149368e5a4688dfebf}\label{high__res__pwm__to__pin_8cpp_aadb7db6e63cae9149368e5a4688dfebf}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!start\_procedure@{start\_procedure}}
+\index{start\_procedure@{start\_procedure}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{start\_procedure()}{start\_procedure()}}
+{\footnotesize\ttfamily int start\+\_\+procedure (\begin{DoxyParamCaption}\item[{int}]{pin\+\_\+1,  }\item[{int}]{pin\+\_\+2 }\end{DoxyParamCaption})}
+
+
+
+Start procedure. 
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a700d1497633d66724487faf3cdcd12b6}\label{high__res__pwm__to__pin_8cpp_a700d1497633d66724487faf3cdcd12b6}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!throttle2pwmValues@{throttle2pwmValues}}
+\index{throttle2pwmValues@{throttle2pwmValues}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{throttle2pwmValues()}{throttle2pwmValues()}}
+{\footnotesize\ttfamily int $\ast$ throttle2pwm\+Values (\begin{DoxyParamCaption}\item[{int}]{throttle }\end{DoxyParamCaption})}
+
+Computes the pwm values for both motors ~\newline
+ given a vehicle throttle precentage. 
+
+Definition at line 117 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a5ee6d107ea9e730ba3795e2729830396}\label{high__res__pwm__to__pin_8cpp_a5ee6d107ea9e730ba3795e2729830396}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!transfer\_pwm@{transfer\_pwm}}
+\index{transfer\_pwm@{transfer\_pwm}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{transfer\_pwm()}{transfer\_pwm()}}
+{\footnotesize\ttfamily void transfer\+\_\+pwm (\begin{DoxyParamCaption}\item[{int}]{pin\+\_\+1,  }\item[{int}]{pin\+\_\+2,  }\item[{int}]{curr\+\_\+pwm\+\_\+value,  }\item[{int}]{new\+\_\+pwm\+\_\+value }\end{DoxyParamCaption})}
+
+Transfers the pwm value smoothly for each 1\% of throttle it takes 0.\+5s 
+
+Definition at line 129 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_ab5ed66899cb811ce3bfb0b35306c1d89}\label{high__res__pwm__to__pin_8cpp_ab5ed66899cb811ce3bfb0b35306c1d89}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!curr\_ang\_vel@{curr\_ang\_vel}}
+\index{curr\_ang\_vel@{curr\_ang\_vel}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{curr\_ang\_vel}{curr\_ang\_vel}}
+{\footnotesize\ttfamily geometry\+\_\+msgs\+::\+Vector3$\ast$ curr\+\_\+ang\+\_\+vel = new geometry\+\_\+msgs\+::\+Vector3()}
+
+
+
+Current angular velocity (3D) 
+
+
+
+Definition at line 23 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a53aa4b476f4bfc53d83b895776399a7f}\label{high__res__pwm__to__pin_8cpp_a53aa4b476f4bfc53d83b895776399a7f}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!curr\_pwm\_values@{curr\_pwm\_values}}
+\index{curr\_pwm\_values@{curr\_pwm\_values}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{curr\_pwm\_values}{curr\_pwm\_values}}
+{\footnotesize\ttfamily int curr\+\_\+pwm\+\_\+values\mbox{[}2\mbox{]} = \{100,100\}}
+
+
+
+Current pwm values required for diff calculation. 
+
+
+
+Definition at line 20 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a572f9e83e6d1b7c333c52899274b23a5}\label{high__res__pwm__to__pin_8cpp_a572f9e83e6d1b7c333c52899274b23a5}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!MAX\_ROT\_SPEED@{MAX\_ROT\_SPEED}}
+\index{MAX\_ROT\_SPEED@{MAX\_ROT\_SPEED}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_ROT\_SPEED}{MAX\_ROT\_SPEED}}
+{\footnotesize\ttfamily const double M\+A\+X\+\_\+\+R\+O\+T\+\_\+\+S\+P\+E\+ED = 3.\+5}
+
+
+
+Definition at line 17 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a33e2eaf5e2420dbc0815c75f33716fec}\label{high__res__pwm__to__pin_8cpp_a33e2eaf5e2420dbc0815c75f33716fec}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!PIN1@{PIN1}}
+\index{PIN1@{PIN1}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{PIN1}{PIN1}}
+{\footnotesize\ttfamily const int P\+I\+N1 = 18}
+
+
+
+Definition at line 26 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a635d2d79a5d7449948bfcfef4e9ebdee}\label{high__res__pwm__to__pin_8cpp_a635d2d79a5d7449948bfcfef4e9ebdee}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!PIN2@{PIN2}}
+\index{PIN2@{PIN2}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{PIN2}{PIN2}}
+{\footnotesize\ttfamily const int P\+I\+N2 = 23}
+
+
+
+Definition at line 27 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a00334088fe90b08b7abb864bb0c8b092}\label{high__res__pwm__to__pin_8cpp_a00334088fe90b08b7abb864bb0c8b092}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!PWM\_FREQUENCY@{PWM\_FREQUENCY}}
+\index{PWM\_FREQUENCY@{PWM\_FREQUENCY}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{PWM\_FREQUENCY}{PWM\_FREQUENCY}}
+{\footnotesize\ttfamily const int P\+W\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY = 50}
+
+
+
+Definition at line 16 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a231eaa450abe8f8d21355f49d12b37b5}\label{high__res__pwm__to__pin_8cpp_a231eaa450abe8f8d21355f49d12b37b5}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!PWM\_RANGE@{PWM\_RANGE}}
+\index{PWM\_RANGE@{PWM\_RANGE}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{PWM\_RANGE}{PWM\_RANGE}}
+{\footnotesize\ttfamily const int P\+W\+M\+\_\+\+R\+A\+N\+GE = 2000}
+
+
+
+Definition at line 15 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+
+\mbox{\Hypertarget{high__res__pwm__to__pin_8cpp_a2f20e9cb706f9e6756f8be02d2eaffff}\label{high__res__pwm__to__pin_8cpp_a2f20e9cb706f9e6756f8be02d2eaffff}} 
+\index{high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}!throttle@{throttle}}
+\index{throttle@{throttle}!high\_res\_pwm\_to\_pin.cpp@{high\_res\_pwm\_to\_pin.cpp}}
+\doxysubsubsection{\texorpdfstring{throttle}{throttle}}
+{\footnotesize\ttfamily int throttle = 0}
+
+How fast should we go (motor throttle)? ~\newline
+ Positive = forwards ~\newline
+ Negative = backwards ~\newline
+ 
+
+Definition at line 13 of file high\+\_\+res\+\_\+pwm\+\_\+to\+\_\+pin.\+cpp.
+

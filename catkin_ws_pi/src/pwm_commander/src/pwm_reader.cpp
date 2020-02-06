@@ -5,9 +5,10 @@
 #include <stdio.h>
 
 
-
+//! Checks if a string is a number.
 bool is_number(const std::string& s);
 
+//! Reads input from commandline. If input is nan it return -100.
 std::string read_input();
 
 int main(int argc, char **argv)
@@ -60,7 +61,6 @@ int main(int argc, char **argv)
   return 0;
 }
 
-/*Reads input from commandline. If input is nan it return -100.*/
 std::string read_input()
 {
   std::string num;

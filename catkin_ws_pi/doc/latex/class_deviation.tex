@@ -1,0 +1,71 @@
+\hypertarget{class_deviation}{}\doxysection{Deviation Class Reference}
+\label{class_deviation}\index{Deviation@{Deviation}}
+
+
+{\ttfamily \#include $<$threshold.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_deviation_a4a9bbaf90363a3423d4a6dca976165a9}{Deviation}} (int n)
+\item 
+double \mbox{\hyperlink{class_deviation_a32ad755edb5cb2fc4ffae1dd273ed008}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current deviation value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_deviation_a590ecbea3d1de53605486fc201121973}{put}} (double elem)
+\begin{DoxyCompactList}\small\item\em Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that buffers up to n values and calculates the standard deviation of those. The buffer works as a sliding window. 
+
+Definition at line 18 of file threshold.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_deviation_a4a9bbaf90363a3423d4a6dca976165a9}\label{class_deviation_a4a9bbaf90363a3423d4a6dca976165a9}} 
+\index{Deviation@{Deviation}!Deviation@{Deviation}}
+\index{Deviation@{Deviation}!Deviation@{Deviation}}
+\doxysubsubsection{\texorpdfstring{Deviation()}{Deviation()}}
+{\footnotesize\ttfamily Deviation\+::\+Deviation (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 60 of file threshold.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_deviation_a32ad755edb5cb2fc4ffae1dd273ed008}\label{class_deviation_a32ad755edb5cb2fc4ffae1dd273ed008}} 
+\index{Deviation@{Deviation}!get@{get}}
+\index{get@{get}!Deviation@{Deviation}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double Deviation\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current deviation value. 
+
+
+
+Definition at line 63 of file threshold.\+hpp.
+
+\mbox{\Hypertarget{class_deviation_a590ecbea3d1de53605486fc201121973}\label{class_deviation_a590ecbea3d1de53605486fc201121973}} 
+\index{Deviation@{Deviation}!put@{put}}
+\index{put@{put}!Deviation@{Deviation}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily double Deviation\+::put (\begin{DoxyParamCaption}\item[{double}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add new value to the buffer. Removes the item which is stored the longest (if the buffer is full) 
+
+
+
+Definition at line 66 of file threshold.\+hpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/pwm\+\_\+commander/src/\mbox{\hyperlink{threshold_8hpp}{threshold.\+hpp}}\end{DoxyCompactItemize}
