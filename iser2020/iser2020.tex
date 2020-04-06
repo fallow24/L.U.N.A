@@ -1,0 +1,124 @@
+
+%%%%%%%%%%%%%%%%%%%% author.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for your "contribution" to a contributed volume
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmult}
+
+% choose options for [] as required from the list
+% in the Reference Guide
+
+\usepackage{mathptmx}       % selects Times Roman as basic font
+\usepackage{helvet}         % selects Helvetica as sans-serif font
+\usepackage{courier}        % selects Courier as typewriter font
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{marginnote}
+\newcommand{\TODO}[1]{\marginnote{TODO: #1}}    % TODO Befehl
+\usepackage{units,subfigure,amsmath}
+\usepackage{wrapfig}
+\usepackage{todonotes}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{url}
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%\usepackage{cleveref}[2012/02/15]
+%\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+\renewcommand{\O}{{\cal O}}
+\renewcommand{\leadsto}{\rightsquigarrow}
+\newcommand{\V}[1]{\text{\boldmath $#1$}}    % Format for "Vector"
+\newcommand{\M}[1]{\V{#1}}                   % Format for "Matrix"
+
+\newcommand{\R}{\mathbbm{R}}                 % set of real number
+\newcommand{\N}{\mathbbm{N}}                 % set of natural numbers
+\newcommand{\C}{\mathbbm{C}}                 % ...
+\newcommand{\1}{\mathbbm{1}}                 % identity matrix
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+% Motivation, Problem Statement, Related Work (one page)
+% Technical Approach (one page)
+% Results (one page)
+% Experiments completed or scheduled (one page)
+% Main experimental insights (one page)
+% References (one page)
+%%
+
+\begin{document}
+
+\title*{L.U.N.A. - A Laser-Mapping Unidirectional Navigation Actuator} 
+\author{Jasper Zevering, Anton Bredenbeck, Fabian Arzberger,
+  Dorit Borrmann and Andreas N\"uchter}
+% FIXME sort the authors
+% Use \authorrunning{Short Title} for an abbreviated version of
+% your contribution title if the original one is too long
+\institute{All authors are with Informatics VII -- Robotics and
+  Telematics, University of W\"urzburg, Am Hubland, 97074 W\"urzburg
+  \email{borrmann@informatik.uni-wuerzburg.de} \\| \email{fabian.arzberger@stud-mail.uni-wuerzburg.de}\\ | \email{anton.bredenbeck@stud-mail.uni-wuerzburg.de}\\ | \email{jasper.zevering@stud-mail.uni-wuerzburg.de} 
+%\and Name of Second Author \at Name, Address of Institute 
+%\email{name@email.address}
+}
+%
+% Use the package "url.sty" to avoid
+% problems with special characters
+% used in your e-mail or web address
+%
+\maketitle
+
+%\abstract*{Each chapter should be preceded by an abstract (10--15 lines long) 
+%that summarizes the content. The abstract will appear \textit{online} at 
+%\url{www.SpringerLink.com} and be available with unrestricted access. This 
+%allows unregistered users to read the abstract as a teaser for the complete 
+%chapter. As a general rule the abstracts will not appear in the printed 
+%version 
+%of your book unless it is the style of your particular book or that of the 
+%series to which your book belongs.
+%Please use the 'starred' version of the new Springer \texttt{abstract} command 
+%for typesetting the text of the online abstracts (cf. source file of this 
+%chapter template \texttt{abstract}) and include them with the source files of 
+%your manuscript. Use the plain \texttt{abstract} command if the abstract is 
+%also to appear in the printed version of the book.}
+\abstract{
+The abstract goes here.
+}
+
+\input{sections/introduction}
+
+\input{sections/technical_approach}
+
+\input{sections/conclusion}
+
+\begin{acknowledgement}
+The authors thank Dieter Ziegler, Dorit and Andreas
+\end{acknowledgement}
+
+\bibliographystyle{plain}
+\bibliography{andreas_publications}
+
+\end{document}

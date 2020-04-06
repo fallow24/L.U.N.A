@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{allen}
+Booz Allen.
+\newblock Unearthing the subterranean environment.
+
+\bibitem{ISER2018}
+D.~Borrmann, S.~J{\"o}rissen, and A.~N{\"u}chter.
+\newblock {RADLER - A RADial LasER scanning device}.
+\newblock In {\em Proceedings of the 16th International Symposium of
+  Experimental Robotics (ISER '18)}, Springer Tracts in Advanced Robotics,
+  pages 655--664, Buenos Aires, Argentina, November 2018.
+
+\bibitem{3D_per_2D_based}
+Zheng Fang, Shibo Zhao, Shiguang Wen, and Yu~Zhang.
+\newblock A real-time 3d perception and reconstruction system based on a 2d
+  laser scanner.
+\newblock {\em Journal of Sensors}, 2018:1--14, 05 2018.
+
+\bibitem{classical_mechanics_scanner}
+Ville Lehtola, Juho-Pekka Virtanen, Antero Kukko, Harri Kaartinen, and Hannu
+  Hyyppä.
+\newblock Localization of mobile laser scanner using classical mechanics.
+\newblock {\em ISPRS Journal of Photogrammetry and Remote Sensing}, 99:25 --
+  29, 01 2015.
+
+\end{thebibliography}

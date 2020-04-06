@@ -1,0 +1,13 @@
+\section{Introduction}
+\label{sec:introduction}
+
+In today's world, autonomous robots have found their way into everyday life in a variety of ways. This includes, but isn't limited to, the vacuum cleaner that independently navigates one's living-room or mobile robots employed for exploration of areas that are too dangerous for humans. To foster new advances in the latter, specifically for underground environments, the  Defense Advanced Research Projects Agency (DARPA) of the US Defense Department established the yearly "SubT" Challenge in 2017. In this challenge, teams are tasked to "Drive novel approaches and technologies to allow warfighters and first-responders to rapidly map, navigate, and search dynamic underground environments."  \cite{allen} proving the demand for further research in this domain. One difficulty of this challenge is building an accurate 3D model of the environment, i.e. mapping the surroundings. The teams that participate in the DARPA challenge take advantage of high-quality hardware, such as state-of-the-art 3D laser-scanners and cameras, thus making their solutions rather expensive. However, the demand for mapping-solutions in the low-cost sector is non-negligible. 
+
+\todo[inline]{Previous low cost 3D laser scanning approaches.I'm unhappy with the complete next paragraph. From here...}
+"Classical Mechanics Scanner" \cite{classical_mechanics_scanner}
+
+Previous work was also done at the Julius-Maximilians University W\"urzburg \cite{ISER2018}. The RADLER (RADial LasER scanning device) consists of a 2D laser scanner attached to the axle of a unicycle. An operator then pushes the unicycle along a requested path. The inherent rotation of the wheel then creates a radial 3D laser-scanning pattern. However, this approach still requires an operator, therefore does not fulfill the autonomy requirements. 
+
+A more autonomous approach was taken in \cite{3D_per_2D_based}. The authors mounted a rotating 2D laser-scanner on top of a \href{https://www.turtlebot.com}{turtle-bot} thus removing the need of an operator. In contrast to the RADLER however, does the turtle-bot not provide an inherent rotation. Therefore an extra actuator is required to create the radial 3D scanning-pattern. \todo[inline]{...to here}
+
+Building upon the results of the RADLER  this paper presents a novel approach to low-cost 3D laser-scanning using a 2D laser-scanner inside a torque driven spherical robot: the L.U.N.A. - sphere (Laser-mapping Unidirectional Navigation Actuator). The 2D laser-scanner is fixed to the spherical structure, hence a similar situation as with the RADLER is given: the inherent rotation of the sphere creates a radial 3D scanning pattern. 
