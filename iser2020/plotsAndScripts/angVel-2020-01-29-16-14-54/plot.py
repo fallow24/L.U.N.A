@@ -13,6 +13,7 @@ x = data[wanted_indeces,1].flatten()
 y = data[wanted_indeces,2].flatten()
 z = data[wanted_indeces,3].flatten()
 t = time[wanted_indeces]
+avg_dt = np.mean([abs(t[i]-t[i+1]) for i in range(len(t)-1)])
 
 # Window size
 window_size = 500
@@ -32,9 +33,9 @@ plt.legend(["x","y","z","x Average", "y Average", "z Average"],\
 	loc='lower left')
 plt.xlabel("Time [s]")
 plt.ylabel("Angular Velocity [°/s]")
-plt.text(40, 0.5,"The average was\ncalculated using a\n"\
-	+ "rolling window\naverage of size {}"\
-	.format(window_size), bbox=dict(facecolor='white', alpha=0.5))
+plt.text(39, 0.75,"The average\nwas calculated\nusing a"\
+	+ "rolling\nwindow average\nof size {0:.2f} s"\
+	.format(window_size*avg_dt), bbox=dict(facecolor='white'))
 plt.grid(True)
 plt.savefig("ang-vel.eps", format="eps")
 plt.show()
