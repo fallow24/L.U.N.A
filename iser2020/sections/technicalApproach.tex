@@ -5,14 +5,14 @@
 \centering
 \begin{subfigure}[b]{0.64\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../Media/sphere_fullshell_left.jpg}
+        \includegraphics[width=\textwidth]{../Media/sphereFullshellLeft.jpg}
         \caption{Hardware setup of the L.U.N.A sphere prototype, including notches in the shell and friction granule.}
         \label{sec:TechnicalApproach:fig:prototype}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.34\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{../Media/sphere_right_motor.jpg}
+        \includegraphics[width=\textwidth]{../Media/sphereRightMotor.jpg}
         \caption{IMU (beneath supporting structure) and brushless motor (above supporting structure) of the L.U.N.A sphere without shell, including flywheel mass. }
         \label{sec:TechnicalApproach:fig:motor}
 \end{subfigure}
@@ -20,9 +20,7 @@
 \caption{Hardware setup of the L.U.N.A sphere prototype, including notches in the shell and friction granule.}
 \end{figure}
 
-Figure \ref{sec:TechnicalApproach:fig:prototype} shows the final hardware setup of the robot. In order to reduce complexity with respect to the 3D-transformation calculations, the laserscanner was placed at the center of a spherical acrylic glass shell as close as possible. This limits the laser scanners movement to rotational movement and removes translational movement completely. With this initial setup given the only room left for the acrylic glass structural components, batteries, boardcomputer, IMUs, motors, weights and wiring are the spacings between the scanner and the shell. Figure \ref{sec:TechnicalApproach:fig:motor} shows one 
-\todo[inline]{Insert motor name (data sheet reference?)}
-motor of the COAM drive with two flywheels attatched. Strong epoxy glue attaches the weights to the motor shafts. As the flywheels start spinning with respect to the structural components of the sphere, the sphere itself starts spinning with respect to the ground. 
+Figure \ref{sec:TechnicalApproach:fig:prototype} shows the final hardware setup of the robot. In order to reduce complexity with respect to the 3D-transformation calculations, the laserscanner was placed at the center of a spherical acrylic glass shell as close as possible. This limits the laser scanners movement to rotational movement and removes translational movement completely. With this initial setup given the only room left for the acrylic glass structural components, batteries, boardcomputer, IMUs, motors, weights and wiring are the spacings between the scanner and the shell. Figure \ref{sec:TechnicalApproach:fig:motor} shows one Turnigy Park480 Brushless Outrunner motor \cite{turnigymotor} of the COAM drive with two flywheels attached. Strong epoxy glue attaches the weights to the motor shafts. As the flywheels start spinning with respect to the structural components of the sphere, the sphere itself starts spinning with respect to the ground. 
 
 \subsection{Hardware Setup}
 \label{sec:TechnicalApproach:HardwareSetup}
@@ -44,7 +42,7 @@ The battery finds its place in front of the laserscanner on another supporting s
 
 \begin{figure}                                                                                                                                                                                                    
 \centering
-%\includegraphics[width=0.5\textwidth]{./photo/imuvirtual.png}                                                                                                                                                      
+\includegraphics[width=0.5\textwidth]{../Media/virtualIMU.png}                                                                                                                                                      
 \caption{Sketch that helps illustrate the combination of 3 IMUs into 1 virtual IMU that simulates being in the center of the sphere.}                                                                                                                           
 \label{sec:SensorIntegration:fig:virtual}                                                                                                                                                                       
 \end{figure}                                                                                                                                                                                                      
