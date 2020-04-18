@@ -20,11 +20,13 @@ window_size = 500
 # Sliding Window Average
 x_avg, y_avg, z_avg = [], [], []
 for i in range(len(t)):
-	n = window_size if len(t) - i > window_size \
-					else (len(t)-i)
-	x_avg.append(np.mean(x[i:i+n]))
-	y_avg.append(np.mean(y[i:i+n]))
-	z_avg.append(np.mean(z[i:i+n]))
+	n_l =int(window_size/2 if i > window_size/2\
+					else i)
+	n_r = int(window_size/2 if len(t) - i > window_size/2 \
+					else (len(t)-i))
+	x_avg.append(np.mean(x[i-n_l:i+n_r]))
+	y_avg.append(np.mean(y[i-n_l:i+n_r]))
+	z_avg.append(np.mean(z[i-n_l:i+n_r]))
 
 fig = plt.figure()
 plt.plot(t,x,'C0',t,y,'C2',t,z,'C4',linewidth=0.5)
