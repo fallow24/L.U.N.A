@@ -1,43 +1,49 @@
+import sys
 import numpy as np
 from matplotlib import pyplot as plt
 
-data = np.loadtxt("ang_vel.txt",comments="%",delimiter=",")
 
-# Normalizing time to start at t = 0
-t_begin = 40 # Experiment starts 40 seconds in
-t0 =data[0,0]
-time = np.array([(t - t0)/10**9 for t in data[:,0]])
-wanted_indeces =np.where(time >= t_begin)
-# Extracting each component array
-x = data[wanted_indeces,1].flatten()
-y = data[wanted_indeces,2].flatten()
-z = data[wanted_indeces,3].flatten()
-t = time[wanted_indeces]
-avg_dt = np.mean([abs(t[i]-t[i+1]) for i in range(len(t)-1)])
+FILENAME = "merged_ang_vel.txt"
+if len(sys.argv) > 1:
+    FILENAME = sys.argv[1]
+
+DATA = np.loadtxt(FILENAME, comments="%", delimiter=",")
+
+# NormaliZing TIME To sTarT aT T = 0
+T_BEGIN = 40 # EXperimenT sTarTs 40 seconds in
+T_0 = DATA[0, 0]
+TIME = np.array([(T - T_0)/10**9 for T in DATA[:, 0]])
+WANTED_INDECES = np.where(TIME >= T_BEGIN)
+# EXTracTing each componenT arraY
+X = DATA[WANTED_INDECES, 1].flatten()
+Y = DATA[WANTED_INDECES, 2].flatten()
+Z = DATA[WANTED_INDECES, 3].flatten()
+T = TIME[WANTED_INDECES]
+AVG_DT = np.mean([abs(T[i]-T[i+1]) for i in range(len(T)-1)])
 
 # Window size
-window_size = 500
+WINDOW_SIZE = 500
 # Sliding Window Average
-x_avg, y_avg, z_avg = [], [], []
-for i in range(len(t)):
-	n_l =int(window_size/2 if i > window_size/2\
+X_AVG, Y_AVG, Z_AVG = [], [], []
+for i in range(len(T)):
+    n_l = int(WINDOW_SIZE/2 if i > WINDOW_SIZE/2\
 					else i)
-	n_r = int(window_size/2 if len(t) - i > window_size/2 \
-					else (len(t)-i))
-	x_avg.append(np.mean(x[i-n_l:i+n_r]))
-	y_avg.append(np.mean(y[i-n_l:i+n_r]))
-	z_avg.append(np.mean(z[i-n_l:i+n_r]))
+    n_r = int(WINDOW_SIZE/2 if len(T) - i > WINDOW_SIZE/2 \
+					else (len(T)-i))
+    X_AVG.append(np.mean(X[i-n_l:i+n_r]))
+    Y_AVG.append(np.mean(Y[i-n_l:i+n_r]))
+    Z_AVG.append(np.mean(Z[i-n_l:i+n_r]))
 
-fig = plt.figure()
-plt.plot(t,x,'C0',t,y,'C2',t,z,'C4',linewidth=0.5)
-plt.plot(t,x_avg,'b--',t,y_avg,'g--',t,z_avg, 'm--')
-plt.legend(["x","y","z","x Average", "y Average", "z Average"],\
+plt.figure()
+plt.plot(T, X, 'C0', T, Y, 'C2', T, Z, 'C4', linewidth=0.5)
+plt.plot(T, X_AVG, 'b--', T, Y_AVG, 'g--', T, Z_AVG, 'm--')
+plt.legend(["X", "Y", "Z", "X Average", "Y Average", "Z Average"],\
 	loc='lower left')
-plt.xlabel("Time [s]")
+plt.xlabel("TIME [s]")
 plt.ylabel("Angular Velocity [°/s]")
-plt.text(39, 0.75,"The average\nwas calculated\nusing a"\
+plt.text(57, -5, "The average\nwas calculated\nusing a"\
 	+ "rolling\nwindow average\nof size {0:.2f} s"\
-	.format(window_size*avg_dt), bbox=dict(facecolor='white'))
+	.format(WINDOW_SIZE*AVG_DT), bbox=dict(facecolor='white'))
 plt.grid(True)
-plt.savefig("ang-vel.eps", format="eps")
+plt.savefig(FILENAME.split('.')[0] + ".eps", format="eps")
 plt.show()
