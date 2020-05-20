@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
         /* Initialize ROS node handler */
         ros::init(argc, argv, "imu_listener");
         ros::NodeHandle n;
-	ROS_INFO("Starting IMU subscriber\n");
+		ROS_INFO("Starting IMU subscriber\n");
 
         /* Init ROS subscriber that listens to all 3 IMU data*/
         ros::Subscriber sub1 = n.subscribe("imu1/data", 5000, chatterCallback);
@@ -78,14 +78,14 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
         // IMU 1: SIDE IMU
 	if(strcmp(msg->header.frame_id.c_str(), "imu1") == 0) 
 	{
-	        wx = -1 * msg->angular_velocity.z;
+	    wx = -1 * msg->angular_velocity.z;
 	}
 	// IMU 2: BOTTOM IMU
 	else if(strcmp(msg->header.frame_id.c_str(), "imu2") == 0)
 	{
-		wz= msg->angular_velocity.z;
+		wz = msg->angular_velocity.z;
 		q_bottom = tf::Quaternion(msg->orientation.x, msg->orientation.y, msg->orientation.z, msg->orientation.w);
-        }
+    }
 	// IMU 3: FRONT IMU
 	else if(strcmp(msg->header.frame_id.c_str(), "imu3") == 0)
 	{
@@ -106,10 +106,10 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
         msgSend.angular_velocity.x = wx;
         msgSend.angular_velocity.y = wy;
         msgSend.angular_velocity.z = wz;
-	msgSend.orientation.x = q_bottom.x();
+		msgSend.orientation.x = q_bottom.x();
         msgSend.orientation.y = q_bottom.y();
-	msgSend.orientation.z = q_bottom.z();
-	msgSend.orientation.w = q_bottom.w();
+		msgSend.orientation.z = q_bottom.z();
+		msgSend.orientation.w = q_bottom.w();
 
         /* Publish the data */ 
         pub.publish(msgSend);
@@ -120,6 +120,6 @@ void chatterCallback(const sensor_msgs::Imu::ConstPtr& msg)
                 ROS_INFO("Imu Name: [%s]", msg->header.frame_id.c_str());
                 ROS_INFO("Imu Seq: [%d]", msg->header.seq);
                 ROS_INFO("Imu Orientation x: [%f], y: [%f], z: [%f], w: [%f]", msg->orientation.x,msg->orientation.y,msg->orientation.z,msg->orientation.w);
-		ROS_INFO("Imu Name: [%s]", msg->header.frame_id.c_str());
+				ROS_INFO("Imu Name: [%s]", msg->header.frame_id.c_str());
         }
 }
