@@ -5,10 +5,8 @@ In today's world, autonomous robots have found their way into everyday life in a
 This includes, but is not limited to, the vacuum cleaner that independently navigates one's living-room or mobile robots employed for exploration of areas that are too dangerous for humans.
 To foster new advances in the latter, specifically for underground environments, the  Defense Advanced Research Projects Agency (DARPA) of the US Defense Department established the yearly ``SubT'' Challenge in 2017.
 In this challenge, teams are tasked to ``Drive novel approaches and technologies to allow warfighters and first-responders to rapidly map, navigate, and search dynamic underground environments.''~\cite{allen} proving the demand for further research in this domain.
-One subtask of this challenge is building an accurate 3D model of the environment, i.e., mapping the surroundings.
-The teams that participate in the DARPA challenge take advantage of high-quality hardware, such as state-of-the-art 3D laser scanners and cameras, thus making their solutions rather expensive.
-However, the demand for mapping-solutions in the low-cost sector is non-negligible.
-\todo{This paper shows a proof of concept and validates it with experiments.}
+One subtask of this challenge is building an accurate 3D model of the environment, i.e., mapping the surroundings. 
+This paper shows a proof of concept of a such a novel approach and validates it with experiments.
 
 One such approach using a 2D laser scanner to scan 3D indoor environments has been proposed in~\cite{classical_mechanics_scanner}.
 The authors mount a 2D laser scanner on a cylindrical structure.
@@ -29,6 +27,8 @@ Therefore an additional actuator is required to create the radial 3D scanning-pa
 This paper builds upon the results of the RADLER and has a specific application of mapping lunar craters autonomously in mind.
 We propose a novel approach to low-cost 3D laser scanning using a 2D laser scanner inside a spherical robot based on conversation of angular momentum (COAM): the L.U.N.A. - sphere (Laser-mapping Unidirectional Navigation Actuator).
 The 2D laser scanner is fixed to the spherical structure, hence a similar situation as with the RADLER is given: the inherent rotation of the sphere creates a radial 3D scanning pattern.
-Using the format of a spherical robot permits the system to be designed more compact.
-\todo{The sphere protects the actuators and sensoric... + regarding space blub}
+Using the format of a spherical robot permits the system to be designed more compact. 
+Additionally, the spherical shell doubles as a protective layer for the actuators, sensors and electronics. 
+This is especially valuable for applications in rough terrain or scenarios in which non-minimal impact is expected, such as space applications.
+During a launch, withstanding large G-forces is a necessary requirement, which can be better implemented using the spherical format. 
 Furthermore, an operator is no longer required given a drive implemented in the robot.

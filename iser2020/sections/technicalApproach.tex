@@ -3,27 +3,23 @@
 
 \begin{figure}
 \centering
-\includegraphics[height=50mm]{../Media/sphereFullshellLeft.jpg}
+\includegraphics[height=55mm]{../Media/sphereFullshellLeft.jpg}
 \hfill
-\includegraphics[height=50mm]{../Media/sphereRightMotor.jpg}   
-\label{sec:TechnicalApproach:fig:motor}
-\label{sec:TechnicalApproach:fig:prototype}
-\caption{Hardware setup of the L.U.N.A sphere prototype, including notches in the shell and friction granule. IMU (beneath supporting structure) and brushless motor (above supporting structure) of the L.U.N.A sphere without shell, including flywheel mass. Hardware setup of the L.U.N.A sphere prototype, including notches in the shell and friction granule.}
+\includegraphics[height=55mm]{../Media/sphereRightMotor.jpg}   
+\caption{Hardware setup of the L.U.N.A sphere prototype, including notches in the shell and friction granule (left). IMU (beneath supporting structure) and brushless motor  including flywheel mass (above supporting structure) of the L.U.N.A sphere (right).}
+\label{sec:TechnicalApproach:fig:setup}
 \end{figure}
-
-\todo{Bilder mit hoehe anpassen, keine captions in subfigures, optimale mm werte finden, caption anpassen (left / right) }
 
 \todo{Wie dreht sich die Kugel überhaupt ? COAM + Cubli paper lesen / gyro effekt + video schneiden (ohne ton) }
 
-Figure \ref{sec:TechnicalApproach:fig:prototype} shows the final hardware setup of the robot.
+Figure \ref{sec:TechnicalApproach:fig:setup} shows the final hardware setup of the robot.
 \todo{was ist da drinnen (raspberry pi, ..), wo ist es da drinnen, warum ist es da drinnen.}
 In order to reduce complexity with respect to the 3D-transformation calculations, the laserscanner was placed at the center of a spherical acrylic glass shell as precisely as possible.
-This limits the laser scanners movement to rotational movement and removes translational movement completely. With this initial setup given, the only room left for the acrylic glass structural components, batteries, boardcomputer, IMUs, motors, weights and wiring are the spaces between the scanner and the shell.
-Figure \ref{sec:TechnicalApproach:fig:motor} shows one Turnigy Park480 brushless outrunner motor \cite{turnigymotor} of the COAM drive with two flywheels attached.
+This limits the laser scanners movement to rotational movement and removes translational movement completely. With this initial setup given, the only room left for the acrylic glass structural components, batteries, boardcomputer, IMUs, motors, weights and wiring are the spaces between the scanner and the shell. On each side one Turnigy Park480 brushless outrunner motor \cite{turnigymotor} of the COAM drive with two flywheels is attached.
 Strong epoxy glue attaches the weights to the motor shafts and shells.
 As the flywheels start spinning with respect to the structural components of the sphere, the sphere itself starts spinning with respect to the ground. 
 
-Figure \ref{sec:TechnicalApproach:fig:prototype} also shows that the top and the bottom of the shell are covered in table salt, which made a good granule to increase friction to the ground in the early testing phase. Furthermore, there are notches in the front side of the shell to increase permeability for the laser.
+Figure \ref{sec:TechnicalApproach:fig:setup} also shows that the top and the bottom of the shell are covered in table salt, which made a good granule to increase friction to the ground in the early testing phase. Furthermore, there are notches in the front side of the shell to increase permeability for the laser.
 Unfortunately, the laser scanner measurements are still affected by blockades due to components of the sphere.
 Specifically, the outside shell is an inhibiting factor as an object with the distance of the radius is measured at all times, \todo{which is why measurement slits}
                                                                                                                                                                                                                   
@@ -44,7 +40,7 @@ Two other IMUs are placed in front of and beneath the laser to ensure coverage o
 
 \begin{figure}                                                                                                                                                                                                    
 \centering
-\includegraphics[width=0.5\textwidth]{../Media/virtualIMU.png}                                                                                                                                                      
+\includegraphics[width=0.4\textwidth]{../Media/virtualIMU.png}                                                                                                                                                      
 \caption{Sketch that helps illustrate the combination of 3 IMUs into 1 virtual IMU that simulates being at the center of the sphere.}                                                                                                                           
 \label{sec:SensorIntegration:fig:virtual}                                                                                                                                                                       
 \end{figure}                                                                                                                                                                                                      
@@ -53,12 +49,39 @@ Two other IMUs are placed in front of and beneath the laser to ensure coverage o
 \label{sec:TechnicalApproach:sensorintegration}
 
 The sensor integration is fully implemented with the Robot Operating System (ROS) using the Ubuntu distribution \href{http://wiki.ros.org/ROSberryPi}{ROSberryPi} which contains a pre-installed ROS version.
-Overall, three seperate PhidgetsSpacial 10441B IMUs \cite{imuphidgets} keep track of the pose of the sphere.
-Figure \ref{sec:SensorIntegration:fig:virtual} illustrates why three IMUs are used instead of just one.
-\todo{Mehr erklären}
-Previous prototypes have shown that transforming the data of only one non-centered IMU leads to lower quality measurements. \todo{die neue figure mit daten}
-However, combining the measurements of three IMUs, where each of which measures only the static rotation around one of their rotational axes (which also represents a rotation axis of the sphere), leads to less noise.
-Each IMU is perpendicular to the other two, so combining the axis measurements leads to a "virtual" IMU, which simulates being an IMU positioned at the center of the sphere. 
+Overall, three seperate PhidgetsSpacial 10441B IMUs \cite{imuphidgets} keep track of the pose of the sphere. Each IMU is placed in such a way that the IMUs Z-axis corresponds to one possible rotation axis of the sphere.
+Therefore, each IMU is perpendicular to the other two, so combining the axes measurements leads to a "virtual" IMU, which emulates being an IMU positioned at the center of the sphere. 
+Hence, isolating the measurements of the resulting virtual IMU to only the rotation in the given axis.
+Figure \ref{sec:SensorIntegration:fig:virtual} illustrates this principal.
+Previous prototypes have shown that transforming the data of only one non-centered IMU leads to lower quality measurements.
+However, combining the measurements of three IMUs, where each of which measures only the static rotation around one of their rotational axes (which also represents a rotation axis of the sphere), leads to less noise, as seen in figures  \ref{sec:technicalApproach:fig:imu1_ang_vel}-\ref{sec:technicalApproach:fig:merged_ang_vel}.
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu1_ang_vel}
+\caption{IMU 1: Z-Axis corresponds to Sphere X-Axis}
+\label{sec:technicalApproach:fig:imu1_ang_vel}
+\end{subfigure}\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu2_ang_vel}
+\caption{IMU 2: Z-Axis corresponds to Sphere Z-Axis}
+\label{sec:technicalApproach:fig:imu2_ang_vel}
+\end{subfigure}\hfill\\
+
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu3_ang_vel}
+\caption{IMU 3: Z-Axis corresponds to Sphere Y-Axis}
+\label{sec:technicalApproach:fig:imu3_ang_vel}
+\end{subfigure}\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/merged_ang_vel}
+\caption{Merged virtual IMU. Maps the Z-Axis of all other IMUs to the rotational axes.}
+\label{sec:technicalApproach:fig:merged_ang_vel}
+\end{subfigure}\hfill
+\caption{Angular velocity measurements of singular IMUs and the combined IMU.}
+\label{sec:technicalApproach:fig:angvel}
+\end{figure}
 
 The IMUs also ship with accelerometers that are used to determine the full pose of the sphere.
 Each IMU calculates their pose separately, using a quaternion extended Kalman filter (QEKF).

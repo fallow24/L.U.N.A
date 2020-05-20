@@ -12,7 +12,6 @@ However, this time the outside shell of the robot is present.
 This results in figure \ref{sec:experimentalResults:3DLaserScanning:fig:secondpointcloud}.
 Finally, the COAM-drive enabled test of the overall system leads to a 3D point cloud consisting of multiple revolutions.
 Figure \ref{sec:experimentalResults:3DLaserScanning:fig:thirdpointcloud} shows results.
-
 \todo{Point size increase, maybe black on white? }
 \begin{figure}
 \centering
@@ -55,18 +54,11 @@ Specifically, figure \ref{sec:experimentalResults:3DLaserScanning:fig:thirdpoint
 \label{sec:experimentalResults:COAMDrive}
 
 The conversation of angular momentum drive accelerates the L.U.N.A. sphere reliably.
-Figure \ref{sec:experimentalResults:COAMDrive:fig:angvel} shows the angular acceleration of the whole sphere measured by the IMU system in one test run. Furthermore, it shows that the acceleration along the rotational axis of the flywheels rises while the accelerations along the other axes remain lower, albeit are noisy.
+Figure \ref{sec:technicalApproach:fig:angvel} shows the angular acceleration of the whole sphere measured by the IMU system in one test run. 
+Furthermore, it shows that the acceleration along the rotational axis of the flywheels rises while the accelerations along the other axes remain lower, albeit are noisy. 
+However, it also shows the decrease in noise due to the combination of the IMU measurements.
 The vibrations and tilt of the robot contribute to the velocities along the other axes.
 The vibrations are results of inexact drilling of the flywheels such that there is an unbalance.
 At the main test site the ground is a hard, clean and low friction concrete floor.
 In such a scenario the vibrations add up and lead to slippage.
 However, a rubber surface (a running track) absorb the vibrations, such that the acceleration process happens reliably.
-
-\todo{Vergleich mit 1 IMU machen, evtl rauschen zeigen}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/ang-vel}
-\caption{Angular velocities of the L.U.N.A. - sphere during a test run. The flywheels rotate around the x-axis in positive direction. Velocities in the other direction can mostly be contributed to vibrations and tilt of the robot.}
-\label{sec:experimentalResults:COAMDrive:fig:angvel}
-\end{figure}

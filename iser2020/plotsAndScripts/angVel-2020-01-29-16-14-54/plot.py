@@ -9,12 +9,12 @@ if len(sys.argv) > 1:
 
 DATA = np.loadtxt(FILENAME, comments="%", delimiter=",")
 
-# NormaliZing TIME To sTarT aT T = 0
-T_BEGIN = 40 # EXperimenT sTarTs 40 seconds in
+# Normalizing TIME To startart at T = 0
+T_BEGIN = 20 # Experiment starts 40 seconds in
 T_0 = DATA[0, 0]
 TIME = np.array([(T - T_0)/10**9 for T in DATA[:, 0]])
 WANTED_INDECES = np.where(TIME >= T_BEGIN)
-# EXTracTing each componenT arraY
+# Extracting each component array
 X = DATA[WANTED_INDECES, 1].flatten()
 Y = DATA[WANTED_INDECES, 2].flatten()
 Z = DATA[WANTED_INDECES, 3].flatten()
@@ -37,13 +37,14 @@ for i in range(len(T)):
 plt.figure()
 plt.plot(T, X, 'C0', T, Y, 'C2', T, Z, 'C4', linewidth=0.5)
 plt.plot(T, X_AVG, 'b--', T, Y_AVG, 'g--', T, Z_AVG, 'm--')
+plt.ylim([-6,6])
 plt.legend(["X", "Y", "Z", "X Average", "Y Average", "Z Average"],\
 	loc='lower left')
 plt.xlabel("TIME [s]")
 plt.ylabel("Angular Velocity [°/s]")
-plt.text(57, -5, "The average\nwas calculated\nusing a"\
+plt.text(55, -5, "The average\nwas calculated\nusing a"\
 	+ "rolling\nwindow average\nof size {0:.2f} s"\
 	.format(WINDOW_SIZE*AVG_DT), bbox=dict(facecolor='white'))
 plt.grid(True)
-plt.savefig(FILENAME.split('.')[0] + ".eps", format="eps")
+plt.savefig(FILENAME.split('.')[0] + ".png", format="png")
 plt.show()
