@@ -50,11 +50,12 @@ Two other IMUs are placed in front of and beneath the laser to ensure coverage o
 
 The sensor integration is fully implemented with the Robot Operating System (ROS) using the Ubuntu distribution \href{http://wiki.ros.org/ROSberryPi}{ROSberryPi} which contains a pre-installed ROS version.
 Overall, three seperate PhidgetsSpacial 10441B IMUs \cite{imuphidgets} keep track of the pose of the sphere. Each IMU is placed in such a way that the IMUs Z-axis corresponds to one possible rotation axis of the sphere.
-Therefore, each IMU is perpendicular to the other two, so combining the axes measurements leads to a "virtual" IMU, which emulates being an IMU positioned at the center of the sphere. 
+Therefore, each IMU is perpendicular to the other two.
+Combining the axes measurements leads to a "virtual" IMU, which emulates being an IMU positioned at the center of the sphere. 
 Hence, isolating the measurements of the resulting virtual IMU to only the rotation in the given axis.
 Figure \ref{sec:SensorIntegration:fig:virtual} illustrates this principal.
 Previous prototypes have shown that transforming the data of only one non-centered IMU leads to lower quality measurements.
-However, combining the measurements of three IMUs, where each of which measures only the static rotation around one of their rotational axes (which also represents a rotation axis of the sphere), leads to less noise, as seen in figures  \ref{sec:technicalApproach:fig:imu1_ang_vel}-\ref{sec:technicalApproach:fig:merged_ang_vel}.
+However, combining the measurements of three IMUs, where each measures only the static rotation around one of their rotational axes (which also represents a rotation axis of the sphere), leads to less noise, as seen in figures  \ref{sec:technicalApproach:fig:imu1_ang_vel}-\ref{sec:technicalApproach:fig:merged_ang_vel}.
 
 \begin{figure}
 \centering
