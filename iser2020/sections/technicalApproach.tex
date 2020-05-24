@@ -31,12 +31,15 @@ Specifically, the outside shell is an inhibiting factor as an object with the di
 \end{figure}                                                                                                                                                                                                      
                                                                                                                                                                                                                   
 Figure \ref{sec:TechnicalApproach:fig:blueprint} shows a CAD blueprint of the overall interior layout of the mechanical structure of the L.U.N.A sphere, ignoring the outside sphere, flywheels and wiring.
-The payload is mounted to supporting structural components which are made of acrylic glass.
-The Raspberry Pi 3B boardcomputer is placed on top of the laser.
-Above that, another supporting structure holds additional counterweights to correct for inhomogeneous weight distribution.                                                                                                     
-The battery finds its place in front of the laser scanner on another supporting structure.
-The two brushless motors were each placed on one side of the supporting structure with spacers that leave room for the side IMU underneath one of the motors.
-Two other IMUs are placed in front of and beneath the laser to ensure coverage of all axes.                                                                                 
+The payload is mounted to supporting structural components which are made of acrylic glass. It is the LMS-100-10000 as afforable laserscanner with high precision and a work-range of 0,5 to 20m.
+The Raspberry Pi 3B boardcomputer is placed on top of the laser. It was chosen because of its high availability and its USB and Ethernet port, as is simplifies the connection of the Lassserscanner (Ethernet) and the 3 IMUs (USB). This avoids further adapter or hubs in the already limited space. Furthermore, it has enough computing power for the required tasks.
+Above the Pi, another supporting structure holds additional counterweights to correct for inhomogeneous weight distribution.                                                                                                     
+The battery finds its place in front of the laser scanner on another supporting structure. It is an XXX watt 3s lithium battery. It was a compromiss of the acceptable runtime at operation of approximately 10 minutes and the size and weight. It powers the Laserscanner and the ESCs directly, as well as an 12V to 5V step down converter for the Pi, mounted under the same plate as it.  The connection was due to the experimental state no power board, which will be used for further versions, but with standard connection-clamp, which ensured high flexibility while building. 
+The two brushless motors were each placed on one side of the supporting structure. The chosen Turnigy Park480 Brushless Outrunner 1320kv provides high rotation speed but also the required height of the body (without shaft) of less than 34mm.
+The motors were mounted with spacers, that leave room for the side IMU underneath one of the motors. 
+The Phidget XXX IMUs are highly affordable IMUs with an, for our use-case, acceptable precision.
+Two other IMUs are placed in front of and beneath the laser to ensure coverage of all axes. 
+Finally a battery checker is mounted on the battery-holding plate, as a small battery combined with high power consumption would lead to deep discharge in a short period of time.
 
 \begin{figure}                                                                                                                                                                                                    
 \centering
