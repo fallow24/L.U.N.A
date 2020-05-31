@@ -1,0 +1,40 @@
+\section{State of the Art}
+\label{sec:stateOfTheArt}
+As evolution of RADLER, a hand-driven radial scanner device, a self-driving spherical approach was chosen to ensure robustness and autonomy.
+The following presents different approaches to spherical robots.
+
+An early idea of an self-driving sphere has been introduced by J.L. Tate in 1893 \cite{tate1893sphere} for a sphere, driven by an inner moving counterweight, which got its torque from an spring.
+This idea of an actuator attached to an counterweight pointing to the bottom and therefore the torque being transferred to the sphere and moving it, is still a widespread approach for spherical robots.
+
+In~\cite{soa1} a basic motion control system for the BYQ-III is introduced.
+The BYQ-III has a mass of \unit[25]{kg} and a diameter of \unit[600]{mm} and its driving mechanism has been proposed in~\cite{soa2} by Hanxu et al.
+It contains  a counterweight pendulum, four gyro actuators, providing movement for two axes and one IMU mounted on the case of the gyro.
+There is no extra payload or sensor, nor would there be space for a centered measurement unit due to the centered counterweight.
+Therefore the counterweight leads to a steady movement, not relying on acceleration but on velocity of the actuators and therefore providing continuous speed.
+
+A second spherical robot with its driving mechanism relaying on inner counterweight is presented in \cite{soa3}.
+This robot was designed for movement on a water surface and therefore has fins mounted to the shell orthogonal to the movement.
+Two actuators attached to the shell and the inner counterweight provide movement around one axis.
+In contrast to the BYQ-III a middle-centered sensor would be possible, but this would have no movement relative to the surface, as it would be part of the relatively non moving inner counterweight.
+It also has steady, well controllable movement. 
+The spheres presented in~\cite{soa4} and~\cite{soa5} provide a solution for a driving system which does not rely on a moving inner counterweight but uses internal reaction wheels to provide torque.
+This leads to theoretically having middle-centered space available, which would be rotating with respect to the surface.
+However, the prototype provided by Muralidharan et al.~\cite{soa4} shows less controllability then counterweight driven spheres. Furthermore, this robot is driven by acceleration and not velocity which leads to limited movement capabilities.
+
+A third approach for spherical robots relies on an internal unit which drives inside the sphere.
+A design and control approach is provided in~\cite{soa6} where a four-wheeled vehicle moves in the sphere to initiate rolling by moving the center of mass in the desired direction.
+This technical solution is capable of a nearly maximum size of possible payload in relation to the overall-size, but also does not provide a rotation of the sensor is needed for 3D laser scanning.
+Additionally, this provides good controllability, similar to the the counterweight-driven approach.
+It is not stable regarding external perturbations or forces, as there is no fixed connection to the shell.
+This makes it not suitable for missions with extreme forces and unknown starting conditions like space applications involving a rocket launch or a hard landing to get to the starting point.
+In a worst case scenario this leads to a start with the unit being rotated by 180 degrees and therefore not being able to bring torque to the sphere.
+If the sphere is stuck a similar situation occurs.
+Then the inner unit tries to perform a whole revolution (``looping'') inside the sphere, which might result in a supine position.
+
+Halme et al.~\cite{soa7} overcome this shortage of the inner unit with just relying on gravity to ensure contact to the shell.
+They introduce the approach of a rod, expanded by a spring to the maximum size and having a wheel on one side of the rod and the original unit on the opposite site.
+The wheel generates the motion by moving the center of mass, so the non-reversible supine position does not exist anymore.
+Even if the center of mass is at the top, the vehicle is still pressed to the shell by the spring and therefore is capable of maintaining its movement.
+This approach does not rotate a sensor placed in the center without further contraptions.
+
+Inspired by the seminal Cubli  \cite{cubliIROS12}, we started designing a spherical robot based on a conservation of momentum (COAM) drive. 

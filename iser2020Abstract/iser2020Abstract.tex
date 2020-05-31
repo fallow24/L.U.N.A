@@ -1,0 +1,212 @@
+
+%%%%%%%%%%%%%%%%%%%% author.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for your "contribution" to a contributed volume
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox]{svmono}
+
+% choose options for [] as required from the list
+% in the Reference Guide
+
+\usepackage{mathptmx}       % selects Times Roman as basic font
+\usepackage{helvet}         % selects Helvetica as sans-serif font
+\usepackage{courier}        % selects Courier as typewriter font
+\usepackage{type1cm}        % activate if the above 3 fonts are
+                            % not available on your system
+%
+\usepackage{makeidx}         % allows index generation
+\usepackage{wrapfig}
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{marginnote}
+\newcommand{\TODO}[1]{\marginnote{TODO: #1}}    % TODO Befehl
+\usepackage{units,amsmath}
+\usepackage{todonotes}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{units}
+\usepackage{subcaption}
+% see the list of further useful packages
+% in the Reference Guide
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%\usepackage{cleveref}[2012/02/15]
+%\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+\renewcommand{\O}{{\cal O}}
+\renewcommand{\leadsto}{\rightsquigarrow}
+\newcommand{\V}[1]{\text{\boldmath $#1$}}    % Format for "Vector"
+\newcommand{\M}[1]{\V{#1}}                   % Format for "Matrix"
+
+\newcommand{\R}{\mathbbm{R}}                 % set of real number
+\newcommand{\N}{\mathbbm{N}}                 % set of natural numbers
+\newcommand{\C}{\mathbbm{C}}                 % ...
+\newcommand{\1}{\mathbbm{1}}                 % identity matrix
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+% Motivation, Problem Statement, Related Work (one page)
+% Technical Approach (one page)
+% Results (one page)
+% Experiments completed or scheduled (one page)
+% Main experimental insights (one page)
+% References (one page)
+%%
+
+\begin{document}
+
+\title{Extended Abstract:           L.U.N.A. - A Laser-Mapping Unidirectional Navigation Actuator} 
+\author{Jasper Zevering, Anton Bredenbeck, Fabian Arzberger,
+  Dorit Borrmann and Andreas N\"uchter}
+% FIXME sort the authors
+% Use \authorrunning{Short Title} for an abbreviated version of
+% your contribution title if the original one is too long
+
+%\and Name of Second Author \at Name, Address of Institute 
+%\email{name@email.address}
+
+%
+% Use the package "url.sty" to avoid
+% problems with special characters
+% used in your e-mail or web address
+%
+\maketitle
+
+%\abstract*{Each chapter should be preceded by an abstract (10--15 lines long) 
+%that summarizes the content. The abstract will appear \textit{online} at 
+%\url{www.SpringerLink.com} and be available with unrestricted access. This 
+%allows unregistered users to read the abstract as a teaser for the complete 
+%chapter. As a general rule the abstracts will not appear in the printed 
+%version 
+%of your book unless it is the style of your particular book or that of the 
+%series to which your book belongs.
+%Please use the 'starred' version of the new Springer \texttt{abstract} command 
+%for typesetting the text of the online abstracts (cf. source file of this 
+%chapter template \texttt{abstract}) and include them with the source files of 
+%your manuscript. Use the plain \texttt{abstract} command if the abstract is 
+%also to appear in the printed version of the book.}
+
+\section{Motivation, Problem Statement, Related Work}
+
+To foster new advances in the latter, specifically for underground environments, the  Defense Advanced Research Projects Agency (DARPA) of the US Defense Department established the yearly ``SubT'' Challenge in 2017.
+In this challenge, teams are tasked to ``Drive novel approaches and technologies to allow warfighters and first-responders to rapidly map, navigate, and search dynamic underground environments.''~\cite{allen} proving the demand for further research in this domain.
+One subtask of this challenge is building an accurate 3D model of the environment, i.e., mapping the surroundings. 
+This paper shows a proof of concept of a such a novel approach and validates it with experiments.
+
+One such approach using a 2D laser scanner to scan 3D indoor environments has been proposed in~\cite{classical_mechanics_scanner}.
+The authors mount a 2D laser scanner on a cylindrical structure.
+An operator then initiates a rolling motion by manually pushing the contraption.
+This enables the scanner to sense the 3D environment successfully.
+However, manually pushing the scanner is not practical, especially for long scans.
+
+Previous work includes our RADLER (RADial LasER scanning device), which consists of a 2D laser scanner attached to the axle of a unicycle~\cite{ISER2018}.
+An operator pushes the unicycle along a requested path.
+The inherent rotation of the wheel creates a radial 3D laser scanning pattern.
+However, this approach still requires an operator, therefore does not fulfill the autonomy requirements. 
+
+A more autonomous approach was taken by Fang et al.~\cite{3D_per_2D_based}.
+The authors mounted a rotating 2D laser-scanner on top of a turtle-bot thus removing the need of an operator.
+In contrast to the RADLER however, the turtle-bot does not provide an inherent rotation.
+Therefore an additional actuator is required to create the radial 3D scanning-pattern. 
+
+This paper builds upon the results of the RADLER and has a specific application of mapping lunar craters autonomously in mind.
+We propose a novel approach to low-cost 3D laser scanning using a 2D laser scanner inside a spherical robot based on conversation of angular momentum (COAM): the L.U.N.A. - sphere (Laser-mapping Unidirectional Navigation Actuator).
+The 2D laser scanner is fixed to the spherical structure, hence a similar situation as with the RADLER is given: the inherent rotation of the sphere creates a radial 3D scanning pattern.
+Using the format of a spherical robot permits the system to be designed more compact. 
+Additionally, the spherical shell doubles as a protective layer for the actuators, sensors and electronics. 
+This is especially valuable for applications in rough terrain or scenarios in which non-minimal impact is expected, such as space applications.
+During a launch, withstanding large G-forces is a necessary requirement, which can be better implemented using the spherical format. 
+Furthermore, an operator is no longer required given a drive implemented in the robot.
+\newpage
+
+\input{sections/technicalApproach}
+\newpage
+\input{sections/experimentalResults}
+\newpage
+\section{Experiments completed or scheduled}
+
+All Experiments have been completed.\\
+
+Multiple Basic-Roll-Tests: as the driving mechanism is not the common approach, where the rotation of a non-homogenus mass-distribution leads to the rotation, there where several basic tests for the driving mechanism conducted. \newline
+
+
+Outdoor and indoor scanning-Tests: the environment-scanning was tested indoor and outdoor. 
+\newline
+Stress-Test for the micro-controller: evaluating the amount of required tasks capable by the micro-controller itself  and therefore scaling the need of an server-structure. \newline
+Single-IMU vs Triple-IMU test: the difference between the use of a single IMU and the triple-IMU approach presented in 
+\ref{sec:TechnicalApproach}  was tested.
+\newpage
+
+
+\section{Main Experimental Insights}
+
+The experiments lead to multiple hardware and software improvements
+The impulse by conservation of angular momentum drive accelerates the L.U.N.A. sphere reliably.
+Figure \ref{sec:technicalApproach:fig:angvel} shows the angular acceleration of the whole sphere measured by the IMU system in one test run. 
+Furthermore, it shows that the acceleration along the rotational axis of the flywheels rises while the accelerations along the other axes remain lower, albeit are noisy. 
+However, it also shows the decrease in noise due to the combination of the IMU measurements.
+The vibrations and tilt of the robot contribute to the velocities along the other axes.
+The vibrations are results of inexact drilling of the flywheels such that there is an unbalance.
+At the main test site the ground is a hard, clean and low friction concrete floor.
+In such a scenario the vibrations add up and lead to slippage.
+However, a rubber surface (a running track) absorb the vibrations, such that the acceleration process happens reliably.\newline
+Furthermore the tests regarding the laser-scanning showed the need of further improvement like re-positioning the laser-scanner and the need for cutting windows into the sphere.
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu1_ang_vel}
+\caption{IMU 1: Z-Axis corresponds to Sphere X-Axis}
+\label{sec:technicalApproach:fig:imu1_ang_vel}
+\end{subfigure}\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu2_ang_vel}
+\caption{IMU 2: Z-Axis corresponds to Sphere Z-Axis}
+\label{sec:technicalApproach:fig:imu2_ang_vel}
+\end{subfigure}\hfill\\
+
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/imu3_ang_vel}
+\caption{IMU 3: Z-Axis corresponds to Sphere Y-Axis}
+\label{sec:technicalApproach:fig:imu3_ang_vel}
+\end{subfigure}\hfill
+\begin{subfigure}{0.45\textwidth}
+\includegraphics[width=\textwidth]{./plotsAndScripts/angVel-2020-01-29-16-14-54/merged_ang_vel}
+\caption{Merged virtual IMU. Maps the Z-Axis of all other IMUs to the rotational axes.}
+\label{sec:technicalApproach:fig:merged_ang_vel}
+\end{subfigure}\hfill
+\caption{Angular velocity measurements of singular IMUs and the combined IMU.}
+\label{sec:technicalApproach:fig:angvel}
+\end{figure}
+
+\begin{acknowledgement}
+The authors thank Dieter Ziegler and Sergio Montenegro for supporting our work and the Elite Network Bavaria for providing funding. 
+
+\subsection*{Authors Note}
+In an attempt to abide by the \href{https://www.go-fair.org/fair-principles}{Fair-Principles} of open science the authors provided all code developed and further information at their \href{https://github.com/fallow24/L.U.N.A}{GitHub} page.
+\end{acknowledgement}
+
+\bibliographystyle{plain}
+\bibliography{andreas_publications}
+
+\end{document}
