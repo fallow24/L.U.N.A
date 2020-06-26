@@ -1,34 +1,34 @@
-\section*{Technical Approach}
+\section{Technical Approach}
 \label{sec:TechnicalApproach}
 
-The L.U.N.A robot is a sphere robot. It carries a  laser-scanner which measures 540 points in one line. Therefore, when the sphere is rolling, L.U.N.A is capable to reconstruct the environment three-dimensional. To accomplish the rotation L..U.N.A has 2 flywheels.
+The L.U.N.A robot is a sphere robot. It carries a  laser-scanner which measures 541 points in one line. Therefore, when the sphere is rolling, L.U.N.A is capable to reconstruct the environment three-dimensional. To accomplish the rotation L..U.N.A has 2 flywheels.
 As result of the impulse-momentum theorem, for a change of the momentum of the flywheels, an impulse, rooted in a force, is needed. 
-The motors provide this force, and according to Newtons' third, a force is applied back, resulting in the opposite change of momentum of the sphere. 
+The motors provide this force, and according to Newtons' third law, a force is applied back, resulting in the opposite change of momentum of the sphere. 
 So the rotation of the sphere is not a direct consequence of the angular momentum of the flywheels, but rather of the impulse needed to spin them. 
 Figure \ref{sec:TechnicalApproach:fig:setup} shows a CAD blueprint of the overall interior layout of the mechanical structure of the L.U.N.A sphere, ignoring the outside sphere, flywheels and wiring.
-The the LMS-100-10000 laser scanner is mounted to the supporting structural components which are made of acrylic glass.
+The LMS-100 laser scanner is mounted to the supporting structural components which are made of acrylic glass.
 The two brushless motors were each placed on one side of the supporting structure. 
 The motors are mounted with spacers, that leave room for the side IMU underneath one of the motors. 
 Two other IMUs are placed in front of and beneath the laser to ensure coverage of all axes. 
-The flywheels are a combination of bass and acrylic glass, as combination of high weight by brass and on the outer radius transparency by the acrylic.
+The flywheels are a combination of brass for high weight and acrylic glass on the outer radius for transparency.
 
-Figure \ref{sec:TechnicalApproach:fig:setup} shows the final hardware setup of the robot.
-In order to reduce complexity with respect to the 3D-transformation calculations, the laser scanner was placed at the center of a spherical acrylic glass shell as precisely as possible.
-This limits the laser scanners movement to rotational movement and removes translational movement completely. 
+Figure \ref{sec:TechnicalApproach:fig:setup} shows the final hardware setup.
+In order to reduce complexity with respect to the 3D-transformation calculations, the laser scanner was centered inside the spherical acrylic glass shell as precisely as possible.
+This reduces the translational offset of the laser scanner with respect to the rotational motion of the sphere. 
                                    
 
-Three seperate IMUs keep track of the pose of the sphere. Each IMU is placed in such a way that the IMUs Z-axis corresponds to one possible rotation axis of the sphere.
+Three separate IMUs keep track of the pose of the sphere. Each IMU is placed in such a way that the IMUs $z$-axis corresponds to one possible rotation axis of the sphere.
 Therefore, each IMU is perpendicular to the other two.
 Combining the axes measurements leads to a "virtual" IMU, which emulates being an IMU positioned at the center of the sphere. 
 Hence, isolating the measurements of the resulting virtual IMU to only the rotation in the given axis.
-The IMUs also ship with accelerometers that are used to determine the full pose of the sphere.
+The IMUs also ship with accelero\-meters that are used to determine the full pose of the sphere.
 Each IMU calculates their pose separately, using a quaternion extended Kalman filter (QEKF).
 However, combining those poses into one does not have any positive effect, but only makes the software more resource demanding and slow.
 Thus only the pose of the bottom IMU's accelerometer is used to keep track of the pose.
 
 A controller was implemented that measures the extend of the vibrations using standard deviations of the non-rotating axes of the IMU and adjusts the throttle of the motors accordingly.
 Considering the translational velocity of the sphere in a controller is not possible.
-The speed of the sphere is calculated by the rotational speed, which is why slippage of the sphere causes such a controller not to produce the desired motion. 
+The speed of the sphere is calculated by the rotational speed, which is why slippage of the sphere causes such a controller to not produce the desired motion. 
 
 For the processing of the point cloud the 3D Toolkit (3DTK) was used.
 Therefore only the time-stamped raw data of the IMUs and laser scanner is transferred and the estimation of the pose and the SLAM algorithm itself is performed externally.
