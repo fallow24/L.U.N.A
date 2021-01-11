@@ -1,0 +1,7 @@
+L.U.N.A. - A Laser Mapping Unidirectional Navigation Actuator
+
+Video Attachment for ISER 2020
+
+created by Jasper Zevering, Anton Bredenbeck, Fabian Arzberger, Dorit Borrmann, Andreas Nüchter
+
+The video shows the L.U.N.A. sphere on a sports track with rubber-like surface operating at 60 percent power. The conversation of angular momentum drive accelerates the sphere. When stopping the motors a backward motion is forced due to the negative momentum because the wheels slow down. 
