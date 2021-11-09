@@ -1,0 +1,4 @@
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.odp filter=lfs diff=lfs merge=lfs -text
+Media/*.mp4 filter=lfs diff=lfs merge=lfs -text
+presentation/*.odp filter=lfs diff=lfs merge=lfs -text
